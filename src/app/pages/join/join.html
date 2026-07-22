@@ -1,0 +1,24 @@
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Rejoindre Cartronic</span>
+    <h1>Deux façons de rejoindre le réseau Cartronic</h1>
+    <p class="page-hero__lead">
+      Techniciens automobiles et vendeurs de pièces ou de véhicules : choisissez le parcours qui
+      correspond à votre activité.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2">
+      @for (path of paths; track path.title) {
+        <article class="card pole-card">
+          <h3>{{ path.title }}</h3>
+          <p>{{ path.desc }}</p>
+          <a [routerLink]="path.link" class="pole-card__link">{{ path.cta }} →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

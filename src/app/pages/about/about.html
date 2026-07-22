@@ -1,0 +1,60 @@
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <app-team-avatars class="section-head__avatars" />
+    <span class="eyebrow">À propos</span>
+    <h1>Your Vehicle, Your Tech</h1>
+    <p class="page-hero__lead">
+      On réunit, sous un même nom, le dépannage automobile et une marketplace de pièces, de
+      location et de vente de véhicules — pour que chaque propriétaire de véhicule trouve la bonne
+      réponse au bon moment.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="section-head">
+      <span class="eyebrow">Notre mission</span>
+      <h2>Simplifier l'entretien et le dépannage automobile</h2>
+    </div>
+    <p>
+      Trouver un technicien de confiance en urgence, planifier un entretien, ou mettre la main sur
+      la bonne pièce au bon moment prend normalement plusieurs coups de fil et plusieurs
+      applications. On a préféré réunir tout ça dans deux applications qui se parlent entre elles,
+      pour que vous n'ayez jamais à jongler d'un service à l'autre.
+    </p>
+    <p>
+      D'un côté, l'application <strong>Cartronic</strong> vous met en relation avec des techniciens
+      automobiles pour le dépannage et l'entretien. De l'autre, <strong>Marketplace Cartronic</strong>
+      vous donne accès aux pièces détachées, ainsi qu'à la location et à la vente de véhicules. Les
+      deux portent la même signature : Cartronic, votre véhicule, votre technologie.
+    </p>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Nos valeurs</span>
+      <h2>Ce qui guide chaque fonctionnalité</h2>
+    </div>
+
+    <div class="grid grid--2">
+      @for (value of values; track value.title) {
+        <article class="card">
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.desc }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow section-head--center">
+    <span class="eyebrow">Presse & partenariats</span>
+    <h2>Vous êtes un média ou un partenaire potentiel ?</h2>
+    <p>Notre équipe se tient à votre disposition pour toute demande de partenariat ou de presse.</p>
+    <a routerLink="/contact" class="btn btn--primary">Nous contacter</a>
+  </div>
+</section>

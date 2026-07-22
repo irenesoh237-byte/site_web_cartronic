@@ -1,0 +1,24 @@
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Actualités</span>
+    <h1>Ce qui se passe chez Cartronic</h1>
+    <p class="page-hero__lead">
+      Annonces, nouvelles zones couvertes et évolutions des applications Cartronic et Marketplace
+      Cartronic.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="news-list">
+      @for (item of items; track item.title) {
+        <article class="news-card">
+          <span class="news-card__date">{{ item.date }}</span>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.excerpt }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

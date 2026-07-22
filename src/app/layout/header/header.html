@@ -1,0 +1,50 @@
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a routerLink="/" class="site-header__brand" (click)="closeMenu()">
+      <img
+        src="assets/branding/cartronic-logo.png"
+        alt="Cartronic"
+        class="site-header__logo"
+        width="40"
+        height="40"
+      />
+      <span class="site-header__name">Cartronic</span>
+    </a>
+
+    <nav
+      class="site-header__nav"
+      [class.site-header__nav--open]="menuOpen()"
+      aria-label="Navigation principale"
+    >
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a routerLink="/" fragment="telecharger" class="btn btn--primary site-header__cta-mobile" (click)="closeMenu()">
+        Télécharger l'app
+      </a>
+    </nav>
+
+    <div class="site-header__actions">
+      <a routerLink="/" fragment="telecharger" class="btn btn--primary site-header__cta">
+        Télécharger l'app
+      </a>
+      <button
+        type="button"
+        class="site-header__toggle"
+        [class.is-open]="menuOpen()"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Ouvrir le menu de navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

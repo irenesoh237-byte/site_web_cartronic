@@ -1,0 +1,85 @@
+<section class="page-hero">
+  <div class="container page-hero__grid">
+    <div class="page-hero__inner">
+      <span class="eyebrow">L'application Cartronic</span>
+      <h1>Un technicien automobile, où que vous soyez</h1>
+      <p class="page-hero__lead">
+        Une panne qui ne prévient jamais, ou un entretien qu'on prévoit à l'avance : dans les deux
+        cas, un technicien qualifié s'occupe de vous, du premier message jusqu'à la fin de
+        l'intervention.
+      </p>
+      <div class="page-hero__actions">
+        <a href="#telecharger" class="btn btn--primary">Télécharger l'application</a>
+      </div>
+    </div>
+    <div class="page-hero__visual" aria-hidden="true">
+      <app-technician-scene />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2>De la demande à la fin de l'intervention</h2>
+    </div>
+
+    <ol class="steps">
+      @for (step of steps; track step.title; let i = $index) {
+        <li class="steps__item">
+          <span class="steps__number">{{ i + 1 }}</span>
+          <div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.desc }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Deux façons de faire appel à un technicien</span>
+      <h2>Urgence ou intervention planifiée</h2>
+    </div>
+
+    <div class="grid grid--2">
+      @for (mode of modes; track mode.title) {
+        <article class="card">
+          <h3>{{ mode.title }}</h3>
+          <p>{{ mode.desc }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Fonctionnalités</span>
+      <h2>De quoi vous rassurer, du premier message à la facture</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (feature of features; track feature.title) {
+        <div class="highlight">
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section download" id="telecharger" style = "margin-bottom: 30px; background: #1e5a8e;">
+  <div class="container download__inner">
+    <h2>Téléchargez l'application Cartronic</h2>
+    <p>Disponible prochainement sur Android et iOS.</p>
+    <app-store-badges appName="Cartronic" />
+    <a routerLink="/devenir-technicien" class="download__link">Vous êtes technicien automobile ? Rejoignez le réseau</a>
+  </div>
+</section>

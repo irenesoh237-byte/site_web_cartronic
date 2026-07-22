@@ -1,0 +1,95 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow">Cartronic</span>
+      <h1>Your Vehicle,<br />Your Tech.</h1>
+      <p class="hero__lead">
+        Une panne, un entretien à prévoir, une pièce ou un véhicule à trouver ? On s'occupe de
+        votre véhicule, du premier message jusqu'à la solution, directement depuis votre téléphone.
+      </p>
+      <div class="hero__actions">
+        <a routerLink="/intervention" class="btn btn--primary">J'ai besoin d'un technicien</a>
+        <a routerLink="/marketplace" class="btn btn--outline">Je cherche une pièce</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <app-technician-scene />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <app-team-avatars class="section-head__avatars" />
+      <span class="eyebrow">Qui sommes-nous</span>
+      <h2>Cartronic, c'est d'abord une équipe</h2>
+      <p>
+        On est parti d'un constat simple : trouver un technicien de confiance en urgence, ou la
+        bonne pièce au bon moment, c'est souvent un casse-tête. Alors on a réuni, sous un même nom,
+        des techniciens automobiles et un réseau de vendeurs et de loueurs que l'on connaît et que
+        l'on a validés nous-mêmes.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      @for (pillar of pillars; track pillar.title) {
+        <div class="highlight">
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.desc }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="structure__more">
+      <a routerLink="/a-propos" class="btn btn--outline">En savoir plus sur Cartronic</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Notre offre</span>
+      <h2>Voici comment on peut vous aider</h2>
+      <p>Concrètement, ça se passe en deux temps, selon ce dont vous avez besoin.</p>
+    </div>
+
+    <div class="grid grid--2">
+      @for (pole of poles; track pole.name) {
+        <article class="card pole-card">
+          <span class="pole-card__tag">{{ pole.tag }}</span>
+          <h3>{{ pole.name }}</h3>
+          <p>{{ pole.desc }}</p>
+          <a [routerLink]="pole.link" class="pole-card__link">{{ pole.cta }} →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Pourquoi Cartronic</span>
+      <h2>Pensé pour vous, pas seulement pour votre véhicule</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (item of highlights; track item.title) {
+        <div class="highlight">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section download" id="telecharger" style = "margin-bottom: 30px; background: #1e5a8e;">
+  <div class="container download__inner">
+    <h2>Prêt à essayer Cartronic ?</h2>
+    <p>Nos applications arrivent prochainement sur Android et iOS.</p>
+    <app-store-badges appName="Cartronic" />
+  </div>
+</section>

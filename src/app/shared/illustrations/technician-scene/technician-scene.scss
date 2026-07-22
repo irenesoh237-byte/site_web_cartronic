@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  width: 100%;
+  color: var(--color-primary);
+}
+
+.scene-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.scene-blob {
+  position: absolute;
+  inset: 8% 12%;
+  background: var(--color-primary-tint);
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  z-index: 0;
+}
+
+.scene-illustration {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  overflow: visible;
+}

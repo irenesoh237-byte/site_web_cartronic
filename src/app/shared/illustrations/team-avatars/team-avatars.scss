@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 148px;
+}
+
+.avatars {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.avatars__bubble {
+  stroke: var(--color-bg);
+  stroke-width: 4;
+}
+
+.avatars__head,
+.avatars__shoulders {
+  fill: var(--color-bg);
+  opacity: 0.92;
+}
+
+.avatars__item--1 .avatars__bubble {
+  fill: var(--color-primary);
+}
+
+.avatars__item--2 .avatars__bubble {
+  fill: var(--color-secondary);
+}
+
+.avatars__item--3 .avatars__bubble {
+  fill: var(--color-primary-dark);
+}

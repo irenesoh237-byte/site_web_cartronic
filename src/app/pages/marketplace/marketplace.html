@@ -1,0 +1,80 @@
+<section class="page-hero">
+  <div class="container page-hero__grid">
+    <div class="page-hero__inner">
+      <span class="eyebrow">Marketplace Cartronic</span>
+      <h1>Pièces, location et vente de véhicules, réunies dans une marketplace automobile</h1>
+      <p class="page-hero__lead">
+        Ici, vous trouvez la pièce qu'il vous manque, vous louez un véhicule pour le week-end, ou
+        vous en achetez un pour de bon — auprès de vendeurs et de loueurs enregistrés par notre
+        équipe.
+      </p>
+      <div class="page-hero__actions">
+        <a href="#telecharger" class="btn btn--primary">Télécharger l'application</a>
+      </div>
+    </div>
+    <div class="page-hero__visual" aria-hidden="true">
+      <app-marketplace-scene />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Ce que propose la marketplace</span>
+      <h2>Trois façons de répondre aux besoins de votre véhicule</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (offer of offers; track offer.title) {
+        <article class="card">
+          <h3>{{ offer.title }}</h3>
+          <p>{{ offer.desc }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Catégories de pièces</span>
+      <h2>Tout ce qu'il faut pour entretenir votre véhicule</h2>
+    </div>
+
+    <div class="categories">
+      @for (category of categories; track category) {
+        <span class="badge">{{ category }}</span>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Nos garanties</span>
+      <h2>Une marketplace pensée pour l'automobile</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (item of guarantees; track item.title) {
+        <article class="card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.desc }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section download" id="telecharger">
+  <div class="container download__inner">
+    <h2>Téléchargez Marketplace Cartronic</h2>
+    <p>Disponible prochainement sur Android et iOS.</p>
+    <app-store-badges appName="Marketplace Cartronic" />
+    <a routerLink="/intervention" class="download__link">Besoin d'un technicien plutôt que d'une pièce ? Découvrez Cartronic</a>
+    <a routerLink="/devenir-vendeur" class="download__link">Vous vendez ou louez des pièces et véhicules ? Devenez vendeur</a>
+  </div>
+</section>
