@@ -1,60 +1,310 @@
-<section class="page-hero">
-  <div class="container page-hero__inner">
-    <app-team-avatars class="section-head__avatars" />
+<section class="page-hero about-hero">
+  <div class="container about-hero__inner" appReveal>
+    <picture class="about-hero__logo" aria-hidden="true">
+      <source srcset="assets/branding/cartronic-logo.webp" type="image/webp" />
+      <img src="assets/branding/cartronic-logo.png" alt="" width="120" height="120" />
+    </picture>
+    <div class="about-hero__badge">🚗 Notre histoire</div>
     <span class="eyebrow">À propos</span>
     <h1>Your Vehicle, Your Tech</h1>
     <p class="page-hero__lead">
       On réunit, sous un même nom, le dépannage automobile et une marketplace de pièces, de
-      location et de vente de véhicules — pour que chaque propriétaire de véhicule trouve la bonne
+      location et de vente de véhicules  pour que chaque propriétaire de véhicule trouve la bonne
       réponse au bon moment.
     </p>
+    <ul class="about-hero__stats" aria-label="Chiffres clés Cartronic">
+      <li class="about-hero__stat">Fondé en 2024</li>
+      <li class="about-hero__stat">Yaoundé, Cameroun</li>
+      <li class="about-hero__stat">3 services réunis</li>
+    </ul>
   </div>
 </section>
 
-<section class="section">
-  <div class="container container--narrow">
-    <div class="section-head">
-      <span class="eyebrow">Notre mission</span>
-      <h2>Simplifier l'entretien et le dépannage automobile</h2>
+<section class="section about-mission">
+  <div class="container about-mission__grid" appReveal="stagger">
+
+    <!-- Colonne gauche : titre + texte -->
+    <div class="about-mission__content">
+      <div class="section-head">
+        <span class="eyebrow">Notre mission</span>
+        <h2>Simplifier l'entretien et le dépannage automobile</h2>
+      </div>
+      <p>
+        Trouver un technicien de confiance en urgence, planifier un entretien, ou mettre la main sur
+        la bonne pièce au bon moment prend normalement plusieurs coups de fil et plusieurs
+        applications. On a préféré réunir tout ça dans deux applications qui se parlent entre elles,
+        pour que vous n'ayez jamais à jongler d'un service à l'autre.
+      </p>
+      <p>
+        D'un côté, l'application <strong>Cartronic</strong> vous met en relation avec des techniciens
+        automobiles pour le dépannage et l'entretien. De l'autre, <strong>Marketplace Cartronic</strong>
+        vous donne accès aux pièces détachées, ainsi qu'à la location et à la vente de véhicules. Les
+        deux portent la même signature : Cartronic, votre véhicule, votre technologie.
+      </p>
     </div>
-    <p>
-      Trouver un technicien de confiance en urgence, planifier un entretien, ou mettre la main sur
-      la bonne pièce au bon moment prend normalement plusieurs coups de fil et plusieurs
-      applications. On a préféré réunir tout ça dans deux applications qui se parlent entre elles,
-      pour que vous n'ayez jamais à jongler d'un service à l'autre.
-    </p>
-    <p>
-      D'un côté, l'application <strong>Cartronic</strong> vous met en relation avec des techniciens
-      automobiles pour le dépannage et l'entretien. De l'autre, <strong>Marketplace Cartronic</strong>
-      vous donne accès aux pièces détachées, ainsi qu'à la location et à la vente de véhicules. Les
-      deux portent la même signature : Cartronic, votre véhicule, votre technologie.
-    </p>
+
+    <!-- Trait vertical -->
+    <div class="about-mission__divider" aria-hidden="true"></div>
+
+    <!-- Colonne droite : deux cartes empilées -->
+    <div class="about-mission__apps">
+      <article class="about-app-card about-app-card--tech">
+        <div class="about-app-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="about-app-card__body">
+          <strong class="about-app-card__name">Cartronic</strong>
+          <p class="about-app-card__desc">Dépannage et entretien automobile avec des techniciens qualifiés, partout au Cameroun.</p>
+        </div>
+      </article>
+
+      <article class="about-app-card about-app-card--mkt">
+        <div class="about-app-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </div>
+        <div class="about-app-card__body">
+          <strong class="about-app-card__name">Marketplace Cartronic</strong>
+          <p class="about-app-card__desc">Pièces détachées, location et vente de véhicules auprès de vendeurs vérifiés.</p>
+        </div>
+      </article>
+    </div>
+
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section about-metrics" appReveal>
   <div class="container">
-    <div class="section-head section-head--center">
+    <ul class="metrics-list" aria-label="Cartronic en chiffres">
+
+      <li class="metrics-item">
+        <span class="metrics-item__value" appCounter>200+</span>
+        <span class="metrics-item__label">Techniciens actifs</span>
+      </li>
+
+      <li class="metrics-item">
+        <span class="metrics-item__value" appCounter>12</span>
+        <span class="metrics-item__label">Villes couvertes</span>
+      </li>
+
+      <li class="metrics-item">
+        <span class="metrics-item__value" appCounter>500+</span>
+        <span class="metrics-item__label">Interventions réalisées</span>
+      </li>
+
+      <li class="metrics-item">
+        <span class="metrics-item__value" appCounter>4.8★</span>
+        <span class="metrics-item__label">Note moyenne clients</span>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<section class="section section--values">
+  <div class="container">
+    <div class="section-head section-head--center" appReveal>
       <span class="eyebrow">Nos valeurs</span>
       <h2>Ce qui guide chaque fonctionnalité</h2>
     </div>
 
-    <div class="grid grid--2">
-      @for (value of values; track value.title) {
-        <article class="card">
-          <h3>{{ value.title }}</h3>
-          <p>{{ value.desc }}</p>
-        </article>
-      }
+    <div class="grid grid--2 values-grid" appReveal="stagger">
+
+      <article class="value-card value-card--trust">
+        <div class="value-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <span class="value-card__keyword">Fiabilité</span>
+        <h3>Fiabilité</h3>
+        <p>Des techniciens qualifiés, des vendeurs et des loueurs qu'on a validés soi-même : on ne vous met en relation qu'avec des gens de confiance.</p>
+      </article>
+
+      <article class="value-card value-card--proximity">
+        <div class="value-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <span class="value-card__keyword">Proximité</span>
+        <h3>Proximité</h3>
+        <p>On vous met en relation rapidement avec le technicien le plus proche et le plus adapté à votre besoin.</p>
+      </article>
+
+      <article class="value-card value-card--transparency">
+        <div class="value-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <span class="value-card__keyword">Transparence</span>
+        <h3>Transparence</h3>
+        <p>Vous suivez votre intervention en temps réel et vous parlez directement à la personne qui s'occupe de vous, sans intermédiaire.</p>
+      </article>
+
+      <article class="value-card value-card--simplicity">
+        <div class="value-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="value-card__keyword">Simplicité</span>
+        <h3>Simplicité</h3>
+        <p>Une app pour le dépannage, une pour les pièces et les véhicules : deux applications qui se parlent, pas dix services à gérer.</p>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container container--narrow section-head--center">
-    <span class="eyebrow">Presse & partenariats</span>
-    <h2>Vous êtes un média ou un partenaire potentiel ?</h2>
-    <p>Notre équipe se tient à votre disposition pour toute demande de partenariat ou de presse.</p>
-    <a routerLink="/contact" class="btn btn--primary">Nous contacter</a>
+<section class="section about-team">
+  <div class="container">
+    <div class="section-head section-head--center" appReveal>
+      <span class="eyebrow">L'équipe</span>
+      <h2>L'équipe fondatrice</h2>
+    </div>
+
+    <div class="grid grid--3 team-grid" appReveal="stagger">
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--blue" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">William Bikoun</span>
+          <span class="team-card__title">CEO &amp; Co-fondateur</span>
+          <p class="team-card__bio">Visionnaire de Cartronic, il pilote la stratégie et le développement produit.</p>
+        </div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn de William Bikoun">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--green" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">À venir</span>
+          <span class="team-card__title">CTO &amp; Co-fondatrice</span>
+          <p class="team-card__bio">Architecte technique de la plateforme, elle construit les deux applications.</p>
+        </div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn de la CTO">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--orange" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">À venir</span>
+          <span class="team-card__title">Head of Operations</span>
+          <p class="team-card__bio">Il coordonne les équipes terrain et assure la qualité du réseau de techniciens.</p>
+        </div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn du Head of Operations">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section about-press" appReveal>
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Presse &amp; partenariats</span>
+      <h2>Travaillons ensemble</h2>
+      <p class="section-head__sub">Notre équipe se tient à votre disposition pour toute demande.</p>
+    </div>
+
+    <div class="grid grid--2 press-grid" appReveal="stagger">
+
+      <article class="press-card">
+        <div class="press-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+            <path d="M18 14h-8"/>
+            <path d="M15 18h-5"/>
+            <path d="M10 6h8v4h-8V6Z"/>
+          </svg>
+        </div>
+        <h3>Vous êtes un média ?</h3>
+        <p>Interviews, reportages ou articles sur Cartronic : notre équipe communication vous répond sous 48h.</p>
+        <p class="press-card__note">Dossier de presse disponible sur demande.</p>
+        <a routerLink="/contact" class="btn btn--primary press-card__btn">Contact presse →</a>
+      </article>
+
+      <article class="press-card press-card--partner">
+        <div class="press-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Vous êtes un partenaire ?</h3>
+        <p>Intégrations, co-développements ou partenariats commerciaux : dites-nous ce que vous avez en tête.</p>
+        <p class="press-card__note">Réponse garantie sous 5 jours ouvrés.</p>
+        <a routerLink="/contact" class="btn press-card__btn press-card__btn--outline">Devenir partenaire →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="about-cta" appReveal>
+  <div class="container about-cta__inner">
+    <h2>Rejoignez l'aventure Cartronic</h2>
+    <p>Que vous soyez client, technicien ou vendeur, il y a une place pour vous dans notre réseau.</p>
+    <div class="about-cta__actions">
+      <a routerLink="/intervention" class="about-cta__btn about-cta__btn--solid">Télécharger l'app</a>
+      <a routerLink="/devenir-technicien" class="about-cta__btn about-cta__btn--outline">Devenir technicien</a>
+      <a routerLink="/devenir-vendeur" class="about-cta__btn about-cta__btn--outline">Devenir vendeur</a>
+    </div>
   </div>
 </section>

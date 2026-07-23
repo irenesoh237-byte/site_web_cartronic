@@ -1,2 +1,533 @@
 // Styles spécifiques à la page Intervention : voir src/styles/_utilities.scss
 // pour les blocs partagés (.page-hero, .steps, .download, .highlight).
+
+// ─── Section téléchargement ───────────────────────────────────────────────────
+
+.intv-download {
+  position: relative;
+  padding-block: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+
+  // Gradient diagonal bleu foncé → bleu primaire
+  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text-on-dark);
+
+  // Motif de points en arrière-plan
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+}
+
+.intv-download__inner {
+  position: relative; // passe au-dessus du ::before
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+
+  h2 {
+    color: #fff;
+    margin: 0;
+  }
+
+  p {
+    color: var(--color-text-on-dark-muted);
+    margin: 0;
+  }
+}
+
+// Ligne de réassurance
+.intv-download__reassurance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: color-mix(in srgb, #fff 80%, transparent);
+    letter-spacing: 0.01em;
+  }
+}
+
+// Bouton outline blanc "Vous êtes technicien ?"
+.intv-download__tech-link {
+  margin-top: var(--space-sm);
+  padding: 0.7rem 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  color: #fff;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+}
+
+// ─── Hero enrichi ─────────────────────────────────────────────────────────────
+
+// Remplace le gradient générique de .page-hero par un dégradé plus riche
+.intv-hero {
+  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+}
+
+// Badge animé "⚡ Intervention en moins de 30 min"
+.intv-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.9rem;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-primary-light);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary-dark);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: intv-badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes intv-badge-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Ligne de stats
+.intv-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding: 0;
+  list-style: none;
+}
+
+.intv-hero__stat {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  &:not(:last-child)::after {
+    content: '•';
+    color: var(--color-border);
+    font-weight: 400;
+  }
+}
+
+// Illustration flottante
+.intv-hero__illustration {
+  width: 100%;
+  max-width: 480px;
+  animation: intv-float 4s ease-in-out infinite;
+}
+
+@keyframes intv-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intv-hero__badge {
+    animation: none;
+  }
+
+  .intv-hero__illustration {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .intv-hero__illustration {
+    max-width: 300px;
+  }
+
+  .intv-hero__stats {
+    gap: var(--space-sm);
+  }
+}
+
+// ─── Section Fonctionnalités ─────────────────────────────────────────────────
+
+.intv-features {
+  background: var(--color-surface);
+}
+
+.intv-features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.intv-feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+}
+
+.intv-feature-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.intv-feature-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  margin: 0;
+}
+
+.intv-feature-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+  margin: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .intv-features__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Cartes de mode (Urgence / Planifiée) ────────────────────────────────────
+
+.mode-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.mode-card--urgent:hover {
+  border-color: var(--color-error);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-error) 12%, transparent);
+  transform: translateY(-4px);
+}
+
+.mode-card--planned:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 12%, transparent);
+  transform: translateY(-4px);
+}
+
+// Badge en haut à droite
+.mode-card__badge {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mode-card__badge--urgent {
+  background: color-mix(in srgb, var(--color-error) 10%, transparent);
+  color: var(--color-error);
+  border: 1px solid color-mix(in srgb, var(--color-error) 25%, transparent);
+}
+
+.mode-card__badge--planned {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary-dark);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+// Icône
+.mode-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xs);
+}
+
+.mode-card--urgent .mode-card__icon {
+  background: color-mix(in srgb, var(--color-error) 10%, transparent);
+  color: var(--color-error);
+}
+
+.mode-card--planned .mode-card__icon {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+// Bullet points avec checkmark
+.mode-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.mode-card--urgent .mode-card__features li::before {
+  background-color: color-mix(in srgb, var(--color-error) 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23d92d20' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+.mode-card--planned .mode-card__features li::before {
+  background-color: color-mix(in srgb, var(--color-success) 12%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2312b76a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+// ─── Timeline horizontale ─────────────────────────────────────────────────────
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  padding: 0;
+  list-style: none;
+}
+
+// Stagger 150ms (override du 100ms global)
+.timeline .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 150ms);
+}
+
+.timeline__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Zone du cercle avec les demi-lignes de connexion
+.timeline__node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--space-md);
+
+  // Demi-ligne gauche (vient de l'étape précédente)
+  &::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+  }
+
+  // Demi-ligne droite (va vers l'étape suivante)
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  }
+}
+
+// Supprimer les demi-lignes aux extrémités
+.timeline__step:first-child .timeline__node::before,
+.timeline__step:last-child .timeline__node::after {
+  display: none;
+}
+
+// Cercle numéroté
+.timeline__number {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Anneau blanc pour "couper" visuellement la ligne de connexion
+  box-shadow: 0 0 0 4px var(--color-bg);
+}
+
+// Carte de l'étape
+.timeline__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  flex: 1;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.timeline__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.timeline__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+  margin: 0 0 var(--space-xs);
+}
+
+.timeline__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  margin: 0;
+  max-width: 100%;
+}
+
+// ─── Mobile : retour en vertical ─────────────────────────────────────────────
+
+@media (max-width: 700px) {
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    position: relative;
+
+    // Ligne verticale à gauche
+    &::before {
+      content: '';
+      position: absolute;
+      left: 18px; // centre du cercle (38px / 2 - 1px de la bordure)
+      top: 19px;
+      bottom: 19px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--color-primary), var(--color-primary-light));
+      z-index: 0;
+    }
+  }
+
+  .timeline__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  .timeline__node {
+    flex-shrink: 0;
+    width: auto;
+    margin-bottom: 0;
+
+    // Masquer les demi-lignes horizontales en mobile
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .timeline__card {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .timeline__icon {
+    margin-bottom: var(--space-sm);
+  }
+}

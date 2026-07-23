@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,6 +9,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Header {
   protected readonly menuOpen = signal(false);
+  protected readonly scrolled = signal(false);
+
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.scrolled.set(window.scrollY > 20);
+  }
 
   protected readonly navLinks = [
     { label: 'Accueil', path: '/', exact: true },

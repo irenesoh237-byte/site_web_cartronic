@@ -1,2 +1,651 @@
-// Styles spécifiques à la page Contact : voir src/styles/_utilities.scss
-// pour les blocs partagés (.page-hero, .field, .form-status).
+// ─── Overrides délai stagger ──────────────────────────────────────────────────
+
+// Layout 2 colonnes : 200ms entre colonne gauche et droite
+.contact-layout .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 200ms);
+}
+
+// Pills de sujet : 80ms entre chaque pill
+.subject-pills .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 80ms);
+}
+
+// ─── Hero ────────────────────────────────────────────────────────────────────
+
+.contact-hero {
+  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+  padding-block: var(--space-2xl); // plus compact que le défaut page-hero
+}
+
+.contact-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+
+  h1            { max-width: 600px; margin: 0; }
+  .eyebrow      { margin: 0; }
+  .page-hero__lead { max-width: 520px; margin: 0; }
+}
+
+// Badge animé
+.contact-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-primary-light);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary-dark);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: contact-badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes contact-badge-pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-hero__badge { animation: none; }
+}
+
+// ─── FAQ compacte ─────────────────────────────────────────────────────────────
+
+.contact-faq {
+  background: #f8f9fa;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.contact-faq__title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-text-strong);
+  text-align: center;
+  margin: 0 0 var(--space-xl);
+}
+
+.contact-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.contact-faq__item {
+  border-bottom: 1px solid var(--color-border-light);
+
+  &:last-child { border-bottom: none; }
+}
+
+.contact-faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover { background: #f8f9fa; }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+  }
+}
+
+.contact-faq__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border-light);
+  color: var(--color-text-subtle);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+
+  .contact-faq__item--open & {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+}
+
+.contact-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+
+  p {
+    margin: 0;
+    padding: 0 var(--space-lg) var(--space-md);
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    line-height: 1.7;
+  }
+
+  .contact-faq__item--open & {
+    max-height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-faq__answer { transition: none; }
+}
+
+// ─── État de succès ───────────────────────────────────────────────────────────
+
+.success-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  animation: success-fade-in 0.4s ease both;
+}
+
+@keyframes success-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// Cercle + checkmark SVG animés
+.success-check {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.success-check__circle {
+  stroke: var(--color-primary);
+  fill: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: draw-circle 0.5s ease forwards;
+}
+
+.success-check__tick {
+  stroke: var(--color-primary);
+  fill: none;
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  animation: draw-tick 0.35s ease 0.45s forwards;
+}
+
+@keyframes draw-circle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-tick {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-check__circle,
+  .success-check__tick { animation: none; stroke-dashoffset: 0; }
+  .success-card { animation: none; }
+}
+
+.success-card__title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-text-strong);
+  margin: 0;
+}
+
+.success-card__subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-subtle);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.success-card__email {
+  color: var(--color-primary);
+  font-weight: 700;
+  word-break: break-all;
+}
+
+// Récapitulatif du sujet
+.success-card__recap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-md) var(--space-lg);
+  background: #f0f7ff;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  border-radius: var(--radius-lg);
+  width: 100%;
+}
+
+.success-card__recap-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.success-card__recap-value {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+// Boutons d'action
+.success-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+// Lien WhatsApp alternatif
+.success-card__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #15803d;
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  transition: background 0.18s ease;
+
+  &:hover { background: #bbf7d0; }
+}
+
+.success-card__whatsapp-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+}
+
+// ─── Layout deux colonnes ─────────────────────────────────────────────────────
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+// ─── Colonne gauche — infos de contact ────────────────────────────────────────
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-info__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+  margin: 0 0 var(--space-xs);
+}
+
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.contact-card__icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.contact-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.contact-card__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+.contact-card__value {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  margin: 0;
+  text-decoration: none;
+
+  &[href] {
+    color: var(--color-primary);
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.contact-card__whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.18s ease, border-color 0.18s ease;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+  }
+
+  &:hover {
+    background: #bbf7d0;
+    border-color: #86efac;
+  }
+}
+
+// Réseaux sociaux
+.contact-socials {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+}
+
+.contact-socials__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  margin: 0 0 var(--space-sm);
+}
+
+.contact-socials__links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.contact-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-light);
+  color: var(--color-text-subtle);
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Pills de sujet ───────────────────────────────────────────────────────────
+
+.field__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.subject-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.subject-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border-light);
+  background: transparent;
+  color: var(--color-text-subtle);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:hover:not(.subject-pill--active) {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.subject-pill--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+// ─── Colonne droite — formulaire ──────────────────────────────────────────────
+
+.contact-form-col {
+  min-width: 0;
+}
+
+// 2 colonnes pour les paires de champs
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Mention optionnel
+.field-optional {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-text-subtle);
+  margin-left: 0.25rem;
+}
+
+// Textarea agrandie
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+// Footer champ : erreur à gauche, compteur à droite
+.field-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+// Compteur de caractères
+.char-counter {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.char-counter--near {
+  color: #b45309;
+}
+
+// Case à cocher consentement
+.field--checkbox {
+  margin-top: var(--space-xs);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  line-height: 1.5;
+
+  input[type="checkbox"] {
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+}
+
+// Bouton submit avec spinner
+.form-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.form-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+// ─── Mobile : colonne unique, infos en bas ────────────────────────────────────
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    order: 2; // infos de contact sous le formulaire
+  }
+
+  .contact-form-col {
+    order: 1;
+  }
+}
+
+// ─── Ligne de réassurance ─────────────────────────────────────────────────────
+
+// Ligne de réassurance
+.contact-hero__reassurance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-subtle);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    &:not(:last-child)::after {
+      content: '|';
+      margin-left: var(--space-md);
+      color: var(--color-border);
+      font-weight: 400;
+    }
+  }
+}

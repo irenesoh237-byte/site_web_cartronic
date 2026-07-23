@@ -2,9 +2,20 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  background: transparent;
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+// Fond blanc + ombre dès que l'utilisateur scroll de plus de 20px
+.site-header.is-scrolled {
+  background: var(--color-bg);
+  border-bottom-color: var(--color-border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .site-header__bar {
@@ -36,6 +47,8 @@
   color: var(--color-text-strong);
 }
 
+// ─── Navigation ──────────────────────────────────────────────────────────────
+
 .site-header__nav {
   display: flex;
   align-items: center;
@@ -45,24 +58,44 @@
 }
 
 .site-header__nav a {
+  position: relative;
   color: var(--color-text-subtle);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
   padding-block: 0.25rem;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.2s ease;
+
+  // Indicateur animé : ligne bleue qui croît depuis le centre
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+
+  &.is-active {
+    color: var(--color-primary);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
-.site-header__nav a:hover {
-  color: var(--color-primary-dark);
-}
-
-.site-header__nav a.is-active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-}
+// ─── CTA "Télécharger l'app" ─────────────────────────────────────────────────
 
 .site-header__cta-mobile {
   display: none;
@@ -74,6 +107,39 @@
   gap: var(--space-md);
   flex-shrink: 0;
 }
+
+// Pulse toutes les 3 secondes pour attirer l'attention
+.site-header__cta {
+  animation: cta-pulse 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes cta-pulse {
+  0%,
+  60%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 40%, transparent);
+  }
+  30% {
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-primary) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__cta {
+    animation: none;
+  }
+
+  .site-header__nav a::after {
+    transition: none;
+  }
+
+  .site-header {
+    transition: none;
+  }
+}
+
+// ─── Bouton hamburger ─────────────────────────────────────────────────────────
 
 .site-header__toggle {
   display: none;
@@ -107,6 +173,8 @@
   }
 }
 
+// ─── Responsive ──────────────────────────────────────────────────────────────
+
 @media (max-width: 860px) {
   .site-header__nav {
     position: absolute;
@@ -133,11 +201,16 @@
     padding: var(--space-md) var(--space-lg);
     border-bottom: 1px solid var(--color-border-light);
     border-left: 2px solid transparent;
-  }
 
-  .site-header__nav a.is-active {
-    border-bottom: 1px solid var(--color-border-light);
-    border-left-color: var(--color-primary);
+    // Pas d'indicateur horizontal en mobile — on utilise la bordure gauche
+    &::after {
+      display: none;
+    }
+
+    &.is-active {
+      border-bottom: 1px solid var(--color-border-light);
+      border-left-color: var(--color-primary);
+    }
   }
 
   .site-header__cta-mobile {

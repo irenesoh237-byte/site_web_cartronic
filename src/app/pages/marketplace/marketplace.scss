@@ -1,11 +1,524 @@
-.categories {
+// ─── Cartes de garanties ──────────────────────────────────────────────────────
+
+.guarantee-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-strong);
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+}
+
+.guarantee-card--trust:hover {
+  border-color: #12b76a;
+  box-shadow: 0 8px 24px color-mix(in srgb, #12b76a 12%, transparent);
+  transform: translateY(-4px);
+}
+
+.guarantee-card--connected:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 12%, transparent);
+  transform: translateY(-4px);
+}
+
+.guarantee-card--tracking:hover {
+  border-color: #f79009;
+  box-shadow: 0 8px 24px color-mix(in srgb, #f79009 12%, transparent);
+  transform: translateY(-4px);
+}
+
+// Icône
+.guarantee-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xs);
+}
+
+.guarantee-card--trust .guarantee-card__icon {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+}
+
+.guarantee-card--connected .guarantee-card__icon {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.guarantee-card--tracking .guarantee-card__icon {
+  background: color-mix(in srgb, #f79009 10%, transparent);
+  color: #b54708;
+}
+
+// Titre court coloré
+.guarantee-card__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.guarantee-card--trust .guarantee-card__label   { color: #027a48; }
+.guarantee-card--connected .guarantee-card__label { color: var(--color-primary-dark); }
+.guarantee-card--tracking .guarantee-card__label  { color: #b54708; }
+
+// ─── Grille de catégories ──────────────────────────────────────────────────────
+
+.section--categories {
+  background: #f8f9fa;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    transform: translateY(-3px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+}
+
+.cat-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary);
+  transition: background 0.2s ease, color 0.2s ease;
+
+  .cat-card:hover & {
+    background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+    color: var(--color-primary-dark);
+  }
+}
+
+.cat-card__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  line-height: 1.3;
+  transition: color 0.2s ease;
+
+  .cat-card:hover & {
+    color: var(--color-primary-dark);
+  }
+}
+
+@media (max-width: 640px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ─── Overrides de délai stagger ───────────────────────────────────────────────
+
+// Cartes "Trois façons" : 150ms entre chaque
+.offers-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 150ms);
+}
+
+// Catégories : 80ms entre chaque
+.cat-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 80ms);
+}
+
+// Garanties : 120ms entre chaque
+.guarantee-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 120ms);
+}
+
+// ─── Section offres ───────────────────────────────────────────────────────────
+
+.section--offers {
+  background: #f8f9fa;
+}
+
+// Carte d'offre
+.offer-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-strong);
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+}
+
+.offer-card--parts:hover {
+  border-color: #12b76a;
+  box-shadow: 0 8px 24px color-mix(in srgb, #12b76a 12%, transparent);
+  transform: translateY(-4px);
+}
+
+.offer-card--rental:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 12%, transparent);
+  transform: translateY(-4px);
+}
+
+.offer-card--sale:hover {
+  border-color: #f79009;
+  box-shadow: 0 8px 24px color-mix(in srgb, #f79009 12%, transparent);
+  transform: translateY(-4px);
+}
+
+// Badge positionné en haut à droite
+.offer-card__badge {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.offer-card__badge--green {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+  border: 1px solid color-mix(in srgb, #12b76a 25%, transparent);
+}
+
+.offer-card__badge--blue {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary-dark);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.offer-card__badge--orange {
+  background: color-mix(in srgb, #f79009 10%, transparent);
+  color: #b54708;
+  border: 1px solid color-mix(in srgb, #f79009 25%, transparent);
+}
+
+// Icône
+.offer-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xs);
+}
+
+.offer-card--parts .offer-card__icon {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+}
+
+.offer-card--rental .offer-card__icon {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.offer-card--sale .offer-card__icon {
+  background: color-mix(in srgb, #f79009 10%, transparent);
+  color: #b54708;
+}
+
+// Bullet points avec checkmark
+.offer-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.offer-card--parts .offer-card__features li::before {
+  background-color: color-mix(in srgb, #12b76a 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2312b76a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+.offer-card--rental .offer-card__features li::before {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+.offer-card--sale .offer-card__features li::before {
+  background-color: color-mix(in srgb, #f79009 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23f79009' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+// ─── Hero enrichi ─────────────────────────────────────────────────────────────
+
+// Gradient bleu très clair → blanc
+.mkt-hero {
+  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+}
+
+// Badge animé "🛒 Vendeurs vérifiés par Cartronic"
+.mkt-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.9rem;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-primary-light);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary-dark);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: mkt-badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes mkt-badge-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Ligne de stats
+.mkt-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding: 0;
+  list-style: none;
+}
+
+.mkt-hero__stat {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  &:not(:last-child)::after {
+    content: '•';
+    color: var(--color-border);
+    font-weight: 400;
+  }
+}
+
+// Illustration flottante
+.mkt-hero__illustration {
+  width: 100%;
+  max-width: 480px;
+  animation: mkt-float 4s ease-in-out infinite;
+}
+
+@keyframes mkt-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mkt-hero__badge {
+    animation: none;
+  }
+
+  .mkt-hero__illustration {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .mkt-hero__illustration {
+    max-width: 300px;
+  }
+
+  .mkt-hero__stats {
+    gap: var(--space-sm);
+  }
+}
+
+// ─── Section téléchargement ────────────────────────────────────────────────────
+
+.mkt-download {
+  position: relative;
+  padding-block: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+
+  // Gradient diagonal bleu foncé → bleu primaire
+  background: linear-gradient(135deg, #0f2942 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text-on-dark);
+
+  // Motif de grille légère en arrière-plan
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+}
+
+.mkt-download__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+
+  h2 {
+    color: #fff;
+    margin: 0;
+  }
+
+  p {
+    color: var(--color-text-on-dark-muted);
+    margin: 0;
+  }
+
+  // Boutons stores plus grands
+  app-store-badges {
+    transform: scale(1.08);
+    transform-origin: center;
+  }
+}
+
+// Ligne de réassurance
+.mkt-download__reassurance {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-sm);
+  gap: var(--space-lg);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: color-mix(in srgb, #fff 80%, transparent);
+    letter-spacing: 0.01em;
+  }
 }
 
-.categories .badge {
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
+// Boutons outline blancs côte à côte
+.mkt-download__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.mkt-download__outline-btn {
+  padding: 0.7rem 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  color: #fff;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+}
+
+@media (max-width: 540px) {
+  .mkt-download__links {
+    flex-direction: column;
+    align-items: center;
+  }
 }

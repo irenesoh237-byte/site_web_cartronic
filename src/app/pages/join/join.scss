@@ -1,2 +1,792 @@
 // Styles spécifiques à la page Rejoindre Cartronic : voir src/styles/_utilities.scss
 // pour les blocs partagés (.page-hero, .pole-card).
+
+// ─── Hero enrichi ─────────────────────────────────────────────────────────────
+
+.join-hero {
+  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+}
+
+.join-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  padding-block: var(--space-3xl);
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    max-width: 700px;
+    margin: 0;
+  }
+
+  .eyebrow {
+    margin: 0;
+  }
+
+  .page-hero__lead {
+    max-width: 600px;
+    margin: 0;
+  }
+}
+
+// Rangée de deux badges côte à côte
+.join-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.join-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: join-badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+}
+
+.join-hero__badge--tech {
+  border: 1.5px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary-dark);
+}
+
+.join-hero__badge--seller {
+  border: 1.5px solid color-mix(in srgb, #12b76a 35%, transparent);
+  background: color-mix(in srgb, #12b76a 8%, transparent);
+  color: #027a48;
+}
+
+@keyframes join-badge-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Ligne de stats
+.join-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  padding: 0;
+  list-style: none;
+}
+
+.join-hero__stat {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  &:not(:last-child)::after {
+    content: '•';
+    color: var(--color-border);
+    font-weight: 400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .join-hero__badge {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .join-hero__stats {
+    gap: var(--space-sm);
+  }
+}
+
+// ─── Section chemins ──────────────────────────────────────────────────────────
+
+.section--join-paths {
+  background: #f8f9fa;
+}
+
+.join-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-strong);
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+}
+
+.join-card--tech:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-primary) 14%, transparent);
+  transform: translateY(-5px);
+}
+
+.join-card--seller:hover {
+  border-color: #12b76a;
+  box-shadow: 0 10px 32px color-mix(in srgb, #12b76a 14%, transparent);
+  transform: translateY(-5px);
+}
+
+// Badge positionné en haut à droite
+.join-card__badge {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.join-card__badge--blue {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary-dark);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.join-card__badge--green {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+  border: 1px solid color-mix(in srgb, #12b76a 25%, transparent);
+}
+
+// Icône grande et colorée
+.join-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xs);
+}
+
+.join-card--tech .join-card__icon {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.join-card--seller .join-card__icon {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+}
+
+// Avantages avec checkmark
+.join-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: var(--space-sm) 0 0;
+  list-style: none;
+  flex: 1; // pousse le bouton vers le bas
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.join-card--tech .join-card__features li::before {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+.join-card--seller .join-card__features li::before {
+  background-color: color-mix(in srgb, #12b76a 10%, transparent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2312b76a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+// Bouton CTA plein
+.join-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-md);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: filter 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+}
+
+.join-card__btn--blue {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.join-card__btn--green {
+  background: #12b76a;
+  color: #fff;
+}
+
+// ─── Overrides de délai stagger ───────────────────────────────────────────────
+
+// Cartes technicien/vendeur : 180ms entre les deux
+.join-paths-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 180ms);
+}
+
+// Timeline : 200ms entre chaque étape
+.join-timeline .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 200ms);
+}
+
+// Témoignages : 150ms entre chaque carte
+.testimonials-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 150ms);
+}
+
+// ─── Section processus avec onglets ───────────────────────────────────────────
+
+.join-process {
+  background: var(--color-surface);
+}
+
+// Barre d'onglets
+.join-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xs);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.join-tab {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-subtle);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover:not(.join-tab--active) {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+}
+
+.join-tab--active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+// Timeline 3 étapes (même structure que intervention, adaptée 3 colonnes)
+.join-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  padding: 0;
+  list-style: none;
+}
+
+// Délai stagger 150ms
+.join-timeline .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 150ms);
+}
+
+.join-timeline__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Nœud avec demi-lignes de connexion
+.join-timeline__node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--space-md);
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  }
+}
+
+.join-timeline__step:first-child .join-timeline__node::before,
+.join-timeline__step:last-child .join-timeline__node::after {
+  display: none;
+}
+
+// Cercle numéroté
+.join-timeline__number {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px var(--color-surface);
+}
+
+// Carte d'étape
+.join-timeline__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  flex: 1;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.join-timeline__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.join-timeline--seller .join-timeline__number {
+  background: #12b76a;
+}
+
+.join-timeline--seller .join-timeline__node::before,
+.join-timeline--seller .join-timeline__node::after {
+  background: linear-gradient(90deg, #86efac, #12b76a);
+}
+
+.join-timeline--seller .join-timeline__node::after {
+  background: linear-gradient(90deg, #12b76a, #86efac);
+}
+
+.join-timeline--seller .join-timeline__icon {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+}
+
+.join-timeline__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+  margin: 0 0 var(--space-xs);
+}
+
+.join-timeline__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .join-timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 19px;
+      bottom: 19px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--color-primary), var(--color-primary-light));
+      z-index: 0;
+    }
+  }
+
+  .join-timeline--seller::before {
+    background: linear-gradient(180deg, #12b76a, #86efac);
+  }
+
+  .join-timeline__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
+
+    &:last-child { padding-bottom: 0; }
+  }
+
+  .join-timeline__node {
+    flex-shrink: 0;
+    width: auto;
+    margin-bottom: 0;
+
+    &::before, &::after { display: none; }
+  }
+
+  .join-timeline__card {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .join-timeline__icon {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+// ─── Section CTA final ────────────────────────────────────────────────────────
+
+.join-cta {
+  position: relative;
+  padding-block: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2942 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text-on-dark);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+}
+
+.join-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+
+  h2 { color: #fff; margin: 0; }
+  p  { color: var(--color-text-on-dark-muted); margin: 0; }
+}
+
+.join-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.join-cta__btn-seller {
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  color: #fff;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+}
+
+.join-cta__reassurance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: color-mix(in srgb, #fff 80%, transparent);
+    letter-spacing: 0.01em;
+  }
+}
+
+// ─── Section FAQ ──────────────────────────────────────────────────────────────
+
+.join-faq {
+  background: var(--color-bg);
+}
+
+.join-faq__inner {
+  max-width: 720px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+// Stagger 80ms entre chaque question
+.faq-list .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 80ms);
+}
+
+.faq-item {
+  border-bottom: 1.5px solid var(--color-border-light);
+
+  &:first-child {
+    border-top: 1.5px solid var(--color-border-light);
+  }
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-lg) 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+  cursor: pointer;
+  gap: var(--space-md);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  .faq-item--open & {
+    color: var(--color-primary);
+  }
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-text-subtle);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  .faq-item--open & {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+}
+
+// Animation smooth par max-height
+.faq-answer {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding-bottom: 0;
+
+  p {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    line-height: 1.7;
+    margin: 0;
+    padding-bottom: var(--space-lg);
+  }
+
+  .faq-item--open & {
+    max-height: 200px;
+    padding-bottom: 0;
+  }
+}
+
+// ─── Section témoignages ──────────────────────────────────────────────────────
+
+.section--testimonials {
+  background: #f8f9fa;
+}
+
+.testimonials-grid .anim-stagger-child {
+  transition-delay: calc(var(--stagger-i, 0) * 130ms);
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+}
+
+// En-tête : avatar + nom/rôle
+.testimonial-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.testimonial-card__avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.testimonial-card__avatar--green {
+  background: color-mix(in srgb, #12b76a 10%, transparent);
+  color: #027a48;
+}
+
+.testimonial-card__avatar--orange {
+  background: color-mix(in srgb, #f79009 10%, transparent);
+  color: #b54708;
+}
+
+.testimonial-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.testimonial-card__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+
+.testimonial-card__role {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+// Étoiles
+.testimonial-card__stars {
+  span {
+    font-size: 1rem;
+    color: #f59e0b;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Citation
+.testimonial-card__quote {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-style: italic;
+}

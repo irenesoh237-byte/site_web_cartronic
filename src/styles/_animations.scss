@@ -1,0 +1,38 @@
+// Animations d'apparition au scroll — appliquées via RevealDirective et CounterDirective.
+// Ces styles sont volontairement globaux (non encapsulés) pour être accessibles
+// aux classes ajoutées dynamiquement par les directives sur n'importe quel élément.
+//
+// prefers-reduced-motion : les directives n'ajoutent aucune de ces classes si
+// l'utilisateur a désactivé les animations système — aucune règle @media nécessaire ici.
+
+// ─── Slide-up simple ────────────────────────────────────────────────────────
+
+.anim-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.anim-slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ─── Stagger (délai progressif sur les enfants) ──────────────────────────────
+
+.anim-stagger-child {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  // Délai calculé depuis l'index --stagger-i posé par la directive
+  transition-delay: calc(var(--stagger-i, 0) * 100ms);
+}
+
+.anim-stagger.is-visible .anim-stagger-child {
+  opacity: 1;
+  transform: translateY(0);
+}

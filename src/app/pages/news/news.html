@@ -1,24 +1,112 @@
-<section class="page-hero">
-  <div class="container page-hero__inner">
+<section class="page-hero news-hero">
+  <div class="container news-hero__inner" appReveal>
+    <div class="news-hero__badge"> Dernières nouvelles</div>
     <span class="eyebrow">Actualités</span>
     <h1>Ce qui se passe chez Cartronic</h1>
     <p class="page-hero__lead">
       Annonces, nouvelles zones couvertes et évolutions des applications Cartronic et Marketplace
       Cartronic.
     </p>
+    <ul class="news-hero__stats" aria-label="Statistiques des actualités">
+      <li class="news-hero__stat">7 actualités publiées</li>
+      <li class="news-hero__stat">Mis à jour août 2026</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Filtre par catégorie -->
+<div class="news-filters" appReveal>
+  <div class="container news-filters__inner">
+    <div class="news-filter-pills" role="group" aria-label="Filtrer par catégorie">
+      @for (filter of filters; track filter) {
+        <button
+          class="news-filter-pill"
+          type="button"
+          [class.news-filter-pill--active]="activeFilter() === filter"
+          [attr.aria-pressed]="activeFilter() === filter"
+          (click)="activeFilter.set(filter)"
+        >
+          {{ filter }}
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<section class="section news-featured">
+  <div class="container">
+    <article class="news-featured-card" appReveal aria-label="À la une">
+      <!-- Décor icône arrière-plan -->
+      <span class="news-featured-card__bg-icon" aria-hidden="true"></span>
+
+      <div class="news-featured-card__content">
+        <span class="news-featured-card__badge"> À la une</span>
+        <div class="news-featured-card__meta">
+          <span class="news-featured-card__category">Marketing</span>
+          <span class="news-featured-card__date">10 août 2026</span>
+        </div>
+        <h2 class="news-featured-card__title">
+          Lancement de la campagne marketing Cartronic
+        </h2>
+        <p class="news-featured-card__excerpt">
+          Cartronic lance officiellement sa première campagne marketing au Cameroun. Présence sur les
+          réseaux sociaux, affichage urbain à Yaoundé et Douala, et partenariats avec des
+          influenceurs locaux pour faire connaître l'application.
+        </p>
+      </div>
+
+      <div class="news-featured-card__action">
+        <a routerLink="/news" class="news-featured-card__btn">Lire la suite →</a>
+      </div>
+    </article>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--narrow">
-    <div class="news-list">
-      @for (item of items; track item.title) {
-        <article class="news-card">
-          <span class="news-card__date">{{ item.date }}</span>
+    <div class="news-list" appReveal="stagger">
+      @for (item of filteredItems(); track item.title) {
+        <article class="news-card" [attr.data-category]="item.category">
+          <div class="news-card__meta">
+            <span class="news-card__date">{{ item.date }}</span>
+            <span class="news-card__category">{{ item.category }}</span>
+          </div>
           <h2>{{ item.title }}</h2>
           <p>{{ item.excerpt }}</p>
         </article>
       }
+      @if (filteredItems().length === 0) {
+        <p class="news-empty">Aucune actualité dans cette catégorie pour le moment.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="section news-newsletter" appReveal>
+  <div class="container">
+    <div class="news-newsletter__card">
+      <div class="news-newsletter__text">
+        <h2 class="news-newsletter__title">Restez informé des actualités Cartronic</h2>
+        <p class="news-newsletter__subtitle">
+          Recevez les annonces de lancement, les nouvelles zones et les offres en avant-première.
+        </p>
+      </div>
+
+      <form class="news-newsletter__form" (submit)="onSubscribe($event)" novalidate>
+        <label for="newsletter-email" class="sr-only">Adresse e-mail</label>
+        <input
+          id="newsletter-email"
+          type="email"
+          class="news-newsletter__input"
+          placeholder="votre@email.com"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="news-newsletter__btn">S'abonner</button>
+      </form>
+
+      <p class="news-newsletter__mention">📧 Pas de spam. Désabonnement en un clic.</p>
     </div>
   </div>
 </section>

@@ -1,80 +1,262 @@
-<section class="page-hero">
+<section class="page-hero mkt-hero">
   <div class="container page-hero__grid">
-    <div class="page-hero__inner">
+    <div class="page-hero__inner" appReveal>
+      <div class="mkt-hero__badge" aria-label="Vendeurs vérifiés par Cartronic">
+        🛒 Vendeurs vérifiés par Cartronic
+      </div>
       <span class="eyebrow">Marketplace Cartronic</span>
       <h1>Pièces, location et vente de véhicules, réunies dans une marketplace automobile</h1>
       <p class="page-hero__lead">
         Ici, vous trouvez la pièce qu'il vous manque, vous louez un véhicule pour le week-end, ou
-        vous en achetez un pour de bon — auprès de vendeurs et de loueurs enregistrés par notre
+        vous en achetez un pour de bon  auprès de vendeurs et de loueurs enregistrés par notre
         équipe.
       </p>
       <div class="page-hero__actions">
         <a href="#telecharger" class="btn btn--primary">Télécharger l'application</a>
       </div>
+      <ul class="mkt-hero__stats" aria-label="Chiffres clés Marketplace Cartronic">
+        <li class="mkt-hero__stat">500+ pièces disponibles</li>
+        <li class="mkt-hero__stat">Vendeurs certifiés</li>
+        <li class="mkt-hero__stat">Livraison rapide</li>
+      </ul>
     </div>
     <div class="page-hero__visual" aria-hidden="true">
-      <app-marketplace-scene />
+      <app-marketplace-scene class="mkt-hero__illustration" />
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section--offers">
   <div class="container">
-    <div class="section-head section-head--center">
+    <div class="section-head section-head--center" appReveal>
       <span class="eyebrow">Ce que propose la marketplace</span>
       <h2>Trois façons de répondre aux besoins de votre véhicule</h2>
     </div>
 
-    <div class="grid grid--3">
-      @for (offer of offers; track offer.title) {
-        <article class="card">
-          <h3>{{ offer.title }}</h3>
-          <p>{{ offer.desc }}</p>
-        </article>
-      }
+    <div class="grid grid--3 offers-grid" appReveal="stagger">
+
+      <article class="offer-card offer-card--parts">
+        <span class="offer-card__badge offer-card__badge--green">Le plus demandé</span>
+        <div class="offer-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>Pièces détachées</h3>
+        <p>Trouvez la pièce ou l'accessoire adapté à votre véhicule, proposé par des vendeurs enregistrés par Cartronic.</p>
+        <ul class="offer-card__features">
+          <li>Filtrage par marque, modèle et année</li>
+          <li>Pièces neuves et d'occasion disponibles</li>
+          <li>Livraison rapide partout au Cameroun</li>
+        </ul>
+      </article>
+
+      <article class="offer-card offer-card--rental">
+        <span class="offer-card__badge offer-card__badge--blue">Nouveau</span>
+        <div class="offer-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 3v5h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <h3>Location de véhicules</h3>
+        <p>Réservez un véhicule pour quelques heures, quelques jours ou plus, auprès des loueurs partenaires de la marketplace.</p>
+        <ul class="offer-card__features">
+          <li>Réservation en quelques minutes</li>
+          <li>Véhicules vérifiés par nos équipes</li>
+          <li>Annulation flexible jusqu'à 24h avant</li>
+        </ul>
+      </article>
+
+      <article class="offer-card offer-card--sale">
+        <span class="offer-card__badge offer-card__badge--orange">Exclusif</span>
+        <div class="offer-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+        </div>
+        <h3>Vente de véhicules</h3>
+        <p>Parcourez les annonces de véhicules à la vente et échangez directement avec le vendeur depuis l'application.</p>
+        <ul class="offer-card__features">
+          <li>Annonces de particuliers et de pros</li>
+          <li>Messagerie intégrée avec le vendeur</li>
+          <li>Historique d'entretien disponible</li>
+        </ul>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--categories">
   <div class="container">
-    <div class="section-head section-head--center">
+    <div class="section-head section-head--center" appReveal>
       <span class="eyebrow">Catégories de pièces</span>
       <h2>Tout ce qu'il faut pour entretenir votre véhicule</h2>
     </div>
 
-    <div class="categories">
-      @for (category of categories; track category) {
-        <span class="badge">{{ category }}</span>
-      }
+    <div class="cat-grid" appReveal="stagger">
+
+      <button class="cat-card" type="button" aria-label="Voir les pièces moteur">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            <path d="M12 2v2m0 16v2M2 12h2m16 0h2"/>
+            <circle cx="12" cy="12" r="7"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Pièces moteur</span>
+      </button>
+
+      <button class="cat-card" type="button" aria-label="Voir les pièces de freinage">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/>
+            <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
+            <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/>
+            <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Freinage</span>
+      </button>
+
+      <button class="cat-card" type="button" aria-label="Voir l'électronique embarquée">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="8" y2="14"/>
+            <line x1="16" y1="12" x2="16" y2="14"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Électronique embarquée</span>
+      </button>
+
+      <button class="cat-card" type="button" aria-label="Voir les pièces de carrosserie">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2"/>
+            <circle cx="9" cy="17" r="2"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Carrosserie</span>
+      </button>
+
+      <button class="cat-card" type="button" aria-label="Voir les pneumatiques">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="3"/>
+            <line x1="12" y1="2" x2="12" y2="9"/>
+            <line x1="12" y1="15" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="9" y2="12"/>
+            <line x1="15" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Pneumatiques</span>
+      </button>
+
+      <button class="cat-card" type="button" aria-label="Voir les accessoires et entretien">
+        <div class="cat-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span class="cat-card__label">Accessoires &amp; entretien</span>
+      </button>
+
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head section-head--center">
+    <div class="section-head section-head--center" appReveal>
       <span class="eyebrow">Nos garanties</span>
       <h2>Une marketplace pensée pour l'automobile</h2>
     </div>
 
-    <div class="grid grid--3">
-      @for (item of guarantees; track item.title) {
-        <article class="card">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.desc }}</p>
-        </article>
-      }
+    <div class="grid grid--3 guarantee-grid" appReveal="stagger">
+
+      <article class="guarantee-card guarantee-card--trust">
+        <div class="guarantee-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <span class="guarantee-card__label">Confiance</span>
+        <h3>Vendeurs et loueurs vérifiés</h3>
+        <p>On enregistre et on valide nous-mêmes chaque vendeur et chaque loueur avant qu'il n'apparaisse sur la marketplace.</p>
+      </article>
+
+      <article class="guarantee-card guarantee-card--connected">
+        <div class="guarantee-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <span class="guarantee-card__label">Intégration</span>
+        <h3>Connectée à vos interventions</h3>
+        <p>En pleine réparation ? Vous retrouvez la pièce ou le véhicule qu'il vous faut sans ressaisir votre véhicule.</p>
+      </article>
+
+      <article class="guarantee-card guarantee-card--tracking">
+        <div class="guarantee-card__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <span class="guarantee-card__label">Suivi</span>
+        <h3>Suivi de commande et de réservation</h3>
+        <p>Vous suivez vos commandes de pièces, vos réservations et vos achats de véhicules, directement depuis l'application.</p>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="section download" id="telecharger">
-  <div class="container download__inner">
+<section class="mkt-download" id="telecharger">
+  <div class="container mkt-download__inner" appReveal>
     <h2>Téléchargez Marketplace Cartronic</h2>
     <p>Disponible prochainement sur Android et iOS.</p>
     <app-store-badges appName="Marketplace Cartronic" />
-    <a routerLink="/intervention" class="download__link">Besoin d'un technicien plutôt que d'une pièce ? Découvrez Cartronic</a>
-    <a routerLink="/devenir-vendeur" class="download__link">Vous vendez ou louez des pièces et véhicules ? Devenez vendeur</a>
+    <ul class="mkt-download__reassurance" aria-label="Garanties Marketplace Cartronic">
+      <li>✓ Gratuit</li>
+      <li>✓ Vendeurs vérifiés</li>
+      <li>✓ Paiement sécurisé</li>
+    </ul>
+    <div class="mkt-download__links">
+      <a routerLink="/intervention" class="mkt-download__outline-btn">
+        Besoin d'un technicien ? Découvrez Cartronic →
+      </a>
+      <a routerLink="/devenir-vendeur" class="mkt-download__outline-btn">
+        Vous vendez ou louez ? Devenez vendeur →
+      </a>
+    </div>
   </div>
 </section>

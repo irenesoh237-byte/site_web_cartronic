@@ -1,13 +1,16 @@
-<header class="site-header">
+<header class="site-header" [class.is-scrolled]="scrolled()">
   <div class="container site-header__bar">
     <a routerLink="/" class="site-header__brand" (click)="closeMenu()">
-      <img
-        src="assets/branding/cartronic-logo.png"
-        alt="Cartronic"
-        class="site-header__logo"
-        width="40"
-        height="40"
-      />
+      <picture>
+        <source srcset="assets/branding/cartronic-logo.webp" type="image/webp" />
+        <img
+          src="assets/branding/cartronic-logo.png"
+          alt="Cartronic"
+          class="site-header__logo"
+          width="40"
+          height="40"
+        />
+      </picture>
       <span class="site-header__name">Cartronic</span>
     </a>
 
