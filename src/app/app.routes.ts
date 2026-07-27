@@ -43,6 +43,12 @@ export const routes: Routes = [
     title: 'Actualités Cartronic',
   },
   {
+    path: 'actualites/lancement-campagne-marketing',
+    loadComponent: () =>
+      import('./pages/campaign-launch/campaign-launch').then((m) => m.CampaignLaunch),
+    title: 'Lancement de la campagne marketing Cartronic',
+  },
+  {
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
     title: 'Contacter Cartronic',

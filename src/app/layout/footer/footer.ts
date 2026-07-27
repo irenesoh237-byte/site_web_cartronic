@@ -23,8 +23,8 @@ export class Footer {
     {
       title: 'Nos solutions',
       links: [
-        { label: 'Interventions', path: '/intervention' },
-        { label: 'Marketplace Cartronic', path: '/marketplace' },
+        { label: 'Cartronic', path: '/intervention' },
+        { label: 'CarMall', path: '/marketplace' },
       ],
     },
     {
