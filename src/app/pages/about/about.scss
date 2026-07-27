@@ -498,6 +498,23 @@
 .team-card__avatar--green  { background: color-mix(in srgb, #12b76a 12%, transparent); color: #027a48; }
 .team-card__avatar--orange { background: color-mix(in srgb, #f79009 12%, transparent); color: #b54708; }
 
+.team-card__avatar--photo {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+// Zoome et recadre sur le visage pour les photos non cadrées en portrait serré
+.team-card__avatar--zoom-face img {
+  transform: scale(1.9);
+  transform-origin: 50% 32%;
+}
+
 // Infos texte
 .team-card__info {
   display: flex;

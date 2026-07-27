@@ -4,7 +4,15 @@
       <source srcset="assets/branding/cartronic-logo.webp" type="image/webp" />
       <img src="assets/branding/cartronic-logo.png" alt="" width="120" height="120" />
     </picture>
-    <div class="about-hero__badge">🚗 Notre histoire</div>
+    <div class="about-hero__badge">
+      <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+        <circle cx="7" cy="17" r="2"/>
+        <path d="M9 17h6"/>
+        <circle cx="17" cy="17" r="2"/>
+      </svg>
+      Notre histoire
+    </div>
     <span class="eyebrow">À propos</span>
     <h1>Your Vehicle, Your Tech</h1>
     <p class="page-hero__lead">
@@ -100,7 +108,12 @@
       </li>
 
       <li class="metrics-item">
-        <span class="metrics-item__value" appCounter>4.8★</span>
+        <span class="metrics-item__value">
+          <span appCounter>4.8</span>
+          <svg class="icon-inline" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </span>
         <span class="metrics-item__label">Note moyenne clients</span>
       </li>
 
@@ -179,22 +192,18 @@
       <h2>L'équipe fondatrice</h2>
     </div>
 
-    <div class="grid grid--3 team-grid" appReveal="stagger">
+    <div class="grid grid--3 team-grid" appReveal="stagger" style="margin-bottom: 30px;">
 
       <article class="team-card">
-        <div class="team-card__avatar team-card__avatar--blue" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <div class="team-card__avatar team-card__avatar--photo">
+          <img src="assets/team/william.jpeg" alt="Photo de William Bikoun" width="80" height="80" />
         </div>
         <div class="team-card__info">
           <span class="team-card__name">William Bikoun</span>
           <span class="team-card__title">CEO &amp; Co-fondateur</span>
           <p class="team-card__bio">Visionnaire de Cartronic, il pilote la stratégie et le développement produit.</p>
         </div>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/in/william-bikoun" target="_blank" rel="noopener noreferrer"
            class="team-card__linkedin" aria-label="Profil LinkedIn de William Bikoun">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -205,15 +214,11 @@
       </article>
 
       <article class="team-card">
-        <div class="team-card__avatar team-card__avatar--green" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <div class="team-card__avatar team-card__avatar--photo team-card__avatar--zoom-face">
+          <img src="assets/team/profile.png" alt="Photo de Victoire Mepe Soh" width="80" height="80" />
         </div>
         <div class="team-card__info">
-          <span class="team-card__name">À venir</span>
+          <span class="team-card__name">Paul-Marie</span>
           <span class="team-card__title">CTO &amp; Co-fondatrice</span>
           <p class="team-card__bio">Architecte technique de la plateforme, elle construit les deux applications.</p>
         </div>
@@ -228,20 +233,77 @@
       </article>
 
       <article class="team-card">
-        <div class="team-card__avatar team-card__avatar--orange" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <div class="team-card__avatar team-card__avatar--photo team-card__avatar--zoom-face">
+          <img src="assets/team/profile.png" alt="Photo de Victoire Mepe Soh" width="80" height="80" />
         </div>
         <div class="team-card__info">
-          <span class="team-card__name">À venir</span>
+          <span class="team-card__name">Elfreid</span>
           <span class="team-card__title">Head of Operations</span>
           <p class="team-card__bio">Il coordonne les équipes terrain et assure la qualité du réseau de techniciens.</p>
         </div>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/in/elfreid/" target="_blank" rel="noopener noreferrer"
            class="team-card__linkedin" aria-label="Profil LinkedIn du Head of Operations">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="grid grid--3 team-grid" appReveal="stagger">
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--photo team-card__avatar--zoom-face">
+          <img src="assets/team/profile.png" alt="Photo de Miguel Zoe" width="80" height="80" />
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">Miguel Zoe</span>
+          <span class="team-card__title">Directeur Général</span>
+          <p class="team-card__bio">Il supervise les opérations quotidiennes et veille à la bonne exécution de la stratégie de l'entreprise.</p>
+        </div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn de Miguel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--photo team-card__avatar--zoom-face">
+          <img src="assets/team/victoire.jpeg" alt="Photo de Victoire Mepe Soh" width="80" height="80" />
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">Victoire Mepe Soh</span>
+          <span class="team-card__title">Directrice IT</span>
+          <p class="team-card__bio">Architecte technique de la plateforme, elle construit les deux applications.</p>
+        </div>
+        <a href="https://www.linkedin.com/in/victoire-soh-411744308/" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn de la CTO">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__avatar team-card__avatar--photo team-card__avatar--zoom-face">
+          <img src="assets/team/elinora.jpeg" alt="Photo de Victoire Mepe Soh" width="80" height="80" />
+        </div>
+        <div class="team-card__info">
+          <span class="team-card__name">Elinora Mboumteke</span>
+          <span class="team-card__title">Directrice marketing et communication</span>
+          <p class="team-card__bio">Elle pilote la communication et l'image de marque de Cartronic auprès du public et des partenaires.</p>
+        </div>
+        <a href="https://www.linkedin.com/in/elinora-mboumteke-411744308/" target="_blank" rel="noopener noreferrer"
+           class="team-card__linkedin" aria-label="Profil LinkedIn de Elinora Mboumteke">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>

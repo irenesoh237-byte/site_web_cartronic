@@ -1,0 +1,60 @@
+.campaign-hero {
+  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+}
+
+.campaign-back {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  margin-bottom: var(--space-md);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.campaign-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.campaign-meta__category {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.campaign-meta__date {
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+}
+
+.campaign-article {
+  h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  p {
+    color: var(--color-text-subtle);
+    line-height: 1.7;
+  }
+}
+
+.campaign-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border-light);
+}

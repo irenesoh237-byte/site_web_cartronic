@@ -197,6 +197,15 @@
   margin-bottom: var(--space-lg);
 }
 
+// Icône inline remplaçant un emoji dans un badge, un onglet ou une phrase
+.icon-inline {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
 // En-tête de page générique (pages produit / à propos / devenir technicien...)
 .page-hero {
   padding-block: var(--space-3xl);

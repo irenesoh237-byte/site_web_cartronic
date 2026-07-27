@@ -5,7 +5,7 @@ import { AfterViewInit, Directive, ElementRef, OnDestroy, inject, input } from '
  * Extrait le nombre depuis le textContent de l'élément et l'anime de 0 jusqu'à
  * sa valeur finale dès que l'élément entre dans le viewport.
  *
- * Supporte les entiers ("500+ techniciens"), les décimaux ("4.8★ satisfaction")
+ * Supporte les entiers ("500+ techniciens"), les décimaux ("4.8")
  * et préserve le texte qui précède et suit le nombre.
  *
  * Respecte `prefers-reduced-motion`.
