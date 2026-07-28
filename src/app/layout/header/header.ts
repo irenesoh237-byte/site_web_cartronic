@@ -19,7 +19,7 @@ export class Header {
   protected readonly navLinks = [
     { label: 'Accueil', path: '/', exact: true },
     { label: 'Cartronic', path: '/intervention', exact: false },
-    { label: 'CarMall', path: '/marketplace', exact: false },
+    { label: 'CartroMall', path: '/marketplace', exact: false },
     { label: 'Rejoindre', path: '/rejoindre', exact: false },
     { label: 'À propos', path: '/a-propos', exact: false },
     { label: 'Actualités', path: '/actualites', exact: false },

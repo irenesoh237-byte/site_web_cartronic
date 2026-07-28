@@ -24,7 +24,7 @@ export class Footer {
       title: 'Nos solutions',
       links: [
         { label: 'Cartronic', path: '/intervention' },
-        { label: 'CarMall', path: '/marketplace' },
+        { label: 'CartroMall', path: '/marketplace' },
       ],
     },
     {
