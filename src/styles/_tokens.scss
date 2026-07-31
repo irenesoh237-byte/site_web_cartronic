@@ -1,0 +1,72 @@
+// Système visuel Cartronic — aligné sur la maquette cartronic-vitrine.html
+:root {
+  // Marque
+  --color-primary: #0b6fbb;
+  --color-primary-light: #1e9bf0;
+  --color-primary-dark: #0f7fd1;
+  --color-secondary: #1e9bf0;
+  --color-secondary-light: #8fd0ff;
+  --color-accent: #1e9bf0;
+  --color-primary-tint: #eaf5fe;
+  --color-primary-soft: #f4fafe;
+
+  // Surfaces
+  --color-bg: #ffffff;
+  --color-surface: #f4fafe;
+  --color-surface-alt: #eaf5fe;
+  --color-surface-dark: #0d1b26;
+  --color-surface-dark-alt: #132b3c;
+
+  // Texte
+  --color-text: #0d1b26;
+  --color-text-strong: #0d1b26;
+  --color-text-muted: #4a6478;
+  --color-text-subtle: #4a6478;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: #b9c9d5;
+
+  // Bordures
+  --color-border: #c9dce9;
+  --color-border-light: #dceaf3;
+
+  // Couleurs sémantiques réservées aux états
+  --color-success: #12b76a;
+  --color-success-dark: #027a48;
+  --color-success-light: #86efac;
+  --color-success-soft: #dcfce7;
+  --color-warning: #f79009;
+  --color-warning-dark: #b54708;
+  --color-warning-light: #fcd34d;
+  --color-error: #d92d20;
+
+  // Typographie
+  --font-sans: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-heading: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+
+  // Échelle d'espacement
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+
+  // Rayons
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  // Ombres sobres inspirées de la maquette de référence
+  --shadow-sm: 0 8px 24px rgba(13, 27, 38, 0.07);
+  --shadow-md: 0 18px 48px rgba(13, 27, 38, 0.12);
+
+  // Mise en page
+  --container-width: 1240px;
+  --header-height: 78px;
+}

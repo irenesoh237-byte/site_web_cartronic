@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-dark);
+  color: #fff;
+  text-decoration: none;
+  cursor: default;
+  opacity: 0.92;
+  transition: opacity 0.15s ease;
+}
+
+.store-badge:hover {
+  opacity: 1;
+}
+
+.store-badge__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.store-badge__eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-on-dark-muted);
+}
+
+.store-badge__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
