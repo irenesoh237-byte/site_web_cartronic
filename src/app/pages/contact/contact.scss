@@ -13,7 +13,7 @@
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
 .contact-hero {
-  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+  background: linear-gradient(160deg, var(--color-primary-tint) 0%, var(--color-primary-soft) 35%, var(--color-bg) 70%);
   padding-block: var(--space-2xl); // plus compact que le défaut page-hero
 }
 
@@ -57,7 +57,7 @@
 // ─── FAQ compacte ─────────────────────────────────────────────────────────────
 
 .contact-faq {
-  background: #f8f9fa;
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border-light);
 }
 
@@ -101,7 +101,7 @@
   cursor: pointer;
   transition: background 0.15s ease;
 
-  &:hover { background: #f8f9fa; }
+  &:hover { background: var(--color-surface); }
 
   &:focus-visible {
     outline: 2px solid var(--color-primary);
@@ -236,7 +236,7 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: var(--space-md) var(--space-lg);
-  background: #f0f7ff;
+  background: var(--color-primary-soft);
   border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
   border-radius: var(--radius-lg);
   width: 100%;
@@ -272,15 +272,15 @@
   gap: var(--space-xs);
   font-size: 0.875rem;
   font-weight: 600;
-  color: #15803d;
+  color: var(--color-success-dark);
   text-decoration: none;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-full);
-  background: #dcfce7;
-  border: 1px solid #bbf7d0;
+  background: var(--color-success-soft);
+  border: 1px solid var(--color-success-light);
   transition: background 0.18s ease;
 
-  &:hover { background: #bbf7d0; }
+  &:hover { background: var(--color-success-light); }
 }
 
 .success-card__whatsapp-dot {
@@ -288,7 +288,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #16a34a;
+  background: var(--color-success);
   flex-shrink: 0;
 }
 
@@ -375,9 +375,9 @@
   margin-top: var(--space-xs);
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-full);
-  background: #dcfce7;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
+  background: var(--color-success-soft);
+  color: var(--color-success-dark);
+  border: 1px solid var(--color-success-light);
   font-size: 0.8125rem;
   font-weight: 600;
   text-decoration: none;
@@ -390,12 +390,12 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #16a34a;
+    background: var(--color-success);
   }
 
   &:hover {
-    background: #bbf7d0;
-    border-color: #86efac;
+    background: var(--color-success-light);
+    border-color: var(--color-success-light);
   }
 }
 
@@ -549,7 +549,7 @@
 }
 
 .char-counter--near {
-  color: #b45309;
+  color: var(--color-warning-dark);
 }
 
 // Case à cocher consentement
