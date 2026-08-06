@@ -100,7 +100,13 @@
           <textarea id="message" formControlName="message" rows="4"></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--block">Envoyer ma candidature</button>
+        @if (errorMessage()) {
+          <p class="field-error" role="alert">{{ errorMessage() }}</p>
+        }
+
+        <button type="submit" class="btn btn--primary btn--block" [disabled]="loading()">
+          {{ loading() ? 'Envoi en cours…' : 'Envoyer ma candidature' }}
+        </button>
       </form>
     }
   </div>

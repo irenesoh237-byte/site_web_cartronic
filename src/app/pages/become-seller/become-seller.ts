@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ContactMailerService } from '../../shared/services/contact-mailer.service';
 
 @Component({
   selector: 'app-become-seller',
@@ -22,9 +23,12 @@ export class BecomeSeller {
     'Plusieurs activités',
   ];
 
-  protected readonly submitted = signal(false);
+  protected readonly submitted    = signal(false);
+  protected readonly loading      = signal(false);
+  protected readonly errorMessage = signal('');
 
-  private readonly fb = inject(FormBuilder);
+  private readonly fb     = inject(FormBuilder);
+  private readonly mailer = inject(ContactMailerService);
 
   protected readonly form = this.fb.nonNullable.group({
     businessName: ['', Validators.required],
@@ -41,12 +45,33 @@ export class BecomeSeller {
       return;
     }
 
-    // Formulaire UI uniquement pour l'instant : aucun appel réseau n'est déclenché.
-    // Brancher ici un envoi réel (API ou service e-mail) lorsque celui-ci sera défini.
-    console.info('Demande vendeur (UI only) :', this.form.getRawValue());
+    this.loading.set(true);
+    this.errorMessage.set('');
 
-    this.submitted.set(true);
-    this.form.reset();
+    const raw = this.form.getRawValue();
+
+    this.mailer
+      .send('Candidature vendeur CartroMall', {
+        'Nom / raison sociale': raw.businessName,
+        'Téléphone': raw.phone,
+        'E-mail': raw.email,
+        'Ville': raw.city,
+        "Type d'activité": raw.activityType,
+        'Message': raw.message,
+      })
+      .subscribe({
+        next: () => {
+          this.loading.set(false);
+          this.submitted.set(true);
+          this.form.reset();
+        },
+        error: () => {
+          this.loading.set(false);
+          this.errorMessage.set(
+            "L'envoi a échoué. Merci de réessayer ou de nous contacter via WhatsApp."
+          );
+        },
+      });
   }
 
   startNewApplication(): void {
