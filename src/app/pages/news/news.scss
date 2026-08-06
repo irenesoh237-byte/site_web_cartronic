@@ -1,7 +1,7 @@
 // ─── Hero enrichi ─────────────────────────────────────────────────────────────
 
 .news-hero {
-  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+  background: linear-gradient(160deg, var(--color-primary-tint) 0%, var(--color-primary-soft) 35%, var(--color-bg) 70%);
 }
 
 .news-hero__inner {
@@ -188,27 +188,27 @@
 
 // Couleurs par catégorie via data-category sur la carte
 .news-card[data-category="Marketing"] .news-card__category {
-  background: color-mix(in srgb, #f79009 10%, transparent);
-  color: #b54708;
-  border-color: color-mix(in srgb, #f79009 25%, transparent);
+  background: color-mix(in srgb, var(--color-warning) 10%, transparent);
+  color: var(--color-warning-dark);
+  border-color: color-mix(in srgb, var(--color-warning) 25%, transparent);
 }
 
 .news-card[data-category="Partenariats"] .news-card__category {
-  background: color-mix(in srgb, #12b76a 10%, transparent);
-  color: #027a48;
-  border-color: color-mix(in srgb, #12b76a 25%, transparent);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  color: var(--color-success-dark);
+  border-color: color-mix(in srgb, var(--color-success) 25%, transparent);
 }
 
 .news-card[data-category="Expansion"] .news-card__category {
-  background: color-mix(in srgb, #7c3aed 10%, transparent);
-  color: #5b21b6;
-  border-color: color-mix(in srgb, #7c3aed 25%, transparent);
+  background: color-mix(in srgb, var(--color-primary-light) 10%, transparent);
+  color: var(--color-primary);
+  border-color: color-mix(in srgb, var(--color-primary-light) 25%, transparent);
 }
 
 // Bordure gauche colorée par catégorie
-.news-card[data-category="Marketing"]    { border-left-color: #f79009; }
-.news-card[data-category="Partenariats"] { border-left-color: #12b76a; }
-.news-card[data-category="Expansion"]    { border-left-color: #7c3aed; }
+.news-card[data-category="Marketing"]    { border-left-color: var(--color-warning); }
+.news-card[data-category="Partenariats"] { border-left-color: var(--color-success); }
+.news-card[data-category="Expansion"]    { border-left-color: var(--color-primary-light); }
 
 .news-card h2 {
   font-size: 1.15rem;
@@ -246,7 +246,7 @@
   gap: var(--space-xl);
   padding: var(--space-2xl) var(--space-2xl);
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, #0f2942 0%, var(--color-primary-dark, #1e40af) 50%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
   box-shadow: 0 8px 32px rgba(15, 41, 66, 0.35);
 }
 
@@ -306,7 +306,7 @@
   padding: 0.15rem 0.55rem;
   border-radius: var(--radius-full);
   background: rgba(247, 144, 9, 0.25);
-  color: #fcd34d;
+  color: var(--color-warning-light);
   border: 1px solid rgba(247, 144, 9, 0.4);
 }
 
@@ -319,7 +319,7 @@
 
 // Titre principal
 .news-featured-card__title {
-  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-family: var(--font-heading, 'Archivo', sans-serif);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #fff;
@@ -379,7 +379,7 @@
   gap: var(--space-lg);
   text-align: center;
   padding: var(--space-2xl) var(--space-xl);
-  background: #f8f9fa;
+  background: var(--color-surface);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
 }

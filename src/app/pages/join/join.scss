@@ -4,7 +4,7 @@
 // ─── Hero enrichi ─────────────────────────────────────────────────────────────
 
 .join-hero {
-  background: linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+  background: linear-gradient(160deg, var(--color-primary-tint) 0%, var(--color-primary-soft) 35%, var(--color-bg) 70%);
 }
 
 .join-hero__inner {
@@ -63,9 +63,9 @@
 }
 
 .join-hero__badge--seller {
-  border: 1.5px solid color-mix(in srgb, #12b76a 35%, transparent);
-  background: color-mix(in srgb, #12b76a 8%, transparent);
-  color: #027a48;
+  border: 1.5px solid color-mix(in srgb, var(--color-success) 35%, transparent);
+  background: color-mix(in srgb, var(--color-success) 8%, transparent);
+  color: var(--color-success-dark);
 }
 
 @keyframes join-badge-pop {
@@ -120,7 +120,7 @@
 // ─── Section chemins ──────────────────────────────────────────────────────────
 
 .section--join-paths {
-  background: #f8f9fa;
+  background: var(--color-surface);
 }
 
 .join-card {
@@ -156,8 +156,8 @@
 }
 
 .join-card--seller:hover {
-  border-color: #12b76a;
-  box-shadow: 0 10px 32px color-mix(in srgb, #12b76a 14%, transparent);
+  border-color: var(--color-success);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-success) 14%, transparent);
   transform: translateY(-5px);
 }
 
@@ -181,9 +181,9 @@
 }
 
 .join-card__badge--green {
-  background: color-mix(in srgb, #12b76a 10%, transparent);
-  color: #027a48;
-  border: 1px solid color-mix(in srgb, #12b76a 25%, transparent);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  color: var(--color-success-dark);
+  border: 1px solid color-mix(in srgb, var(--color-success) 25%, transparent);
 }
 
 // Icône grande et colorée
@@ -203,8 +203,8 @@
 }
 
 .join-card--seller .join-card__icon {
-  background: color-mix(in srgb, #12b76a 10%, transparent);
-  color: #027a48;
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  color: var(--color-success-dark);
 }
 
 // Avantages avec checkmark
@@ -243,7 +243,7 @@
 }
 
 .join-card--seller .join-card__features li::before {
-  background-color: color-mix(in srgb, #12b76a 10%, transparent);
+  background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2312b76a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
 }
 
@@ -272,7 +272,7 @@
 }
 
 .join-card__btn--green {
-  background: #12b76a;
+  background: var(--color-success);
   color: #fff;
 }
 
@@ -443,21 +443,21 @@
 }
 
 .join-timeline--seller .join-timeline__number {
-  background: #12b76a;
+  background: var(--color-success);
 }
 
 .join-timeline--seller .join-timeline__node::before,
 .join-timeline--seller .join-timeline__node::after {
-  background: linear-gradient(90deg, #86efac, #12b76a);
+  background: linear-gradient(90deg, var(--color-success-light), var(--color-success));
 }
 
 .join-timeline--seller .join-timeline__node::after {
-  background: linear-gradient(90deg, #12b76a, #86efac);
+  background: linear-gradient(90deg, var(--color-success), var(--color-success-light));
 }
 
 .join-timeline--seller .join-timeline__icon {
-  background: color-mix(in srgb, #12b76a 10%, transparent);
-  color: #027a48;
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  color: var(--color-success-dark);
 }
 
 .join-timeline__title {
@@ -492,7 +492,7 @@
   }
 
   .join-timeline--seller::before {
-    background: linear-gradient(180deg, #12b76a, #86efac);
+    background: linear-gradient(180deg, var(--color-success), var(--color-success-light));
   }
 
   .join-timeline__step {
@@ -529,7 +529,7 @@
   padding-block: var(--space-3xl);
   margin-bottom: var(--space-2xl);
   overflow: hidden;
-  background: linear-gradient(135deg, #0f2942 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
   color: var(--color-text-on-dark);
 
   &::before {
@@ -701,7 +701,7 @@
 // ─── Section témoignages ──────────────────────────────────────────────────────
 
 .section--testimonials {
-  background: #f8f9fa;
+  background: var(--color-surface);
 }
 
 .testimonials-grid .anim-stagger-child {
@@ -745,13 +745,13 @@
 }
 
 .testimonial-card__avatar--green {
-  background: color-mix(in srgb, #12b76a 10%, transparent);
-  color: #027a48;
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  color: var(--color-success-dark);
 }
 
 .testimonial-card__avatar--orange {
-  background: color-mix(in srgb, #f79009 10%, transparent);
-  color: #b54708;
+  background: color-mix(in srgb, var(--color-warning) 10%, transparent);
+  color: var(--color-warning-dark);
 }
 
 .testimonial-card__meta {
@@ -775,7 +775,7 @@
 .testimonial-card__stars {
   span {
     font-size: 1rem;
-    color: #f59e0b;
+    color: var(--color-warning);
     letter-spacing: 0.05em;
   }
 }

@@ -4,22 +4,22 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
-    title: 'Cartronic — Your Vehicle, Your Tech',
+    title: 'Cartronic | La plateforme numérique des services automobiles',
   },
   {
     path: 'intervention',
     loadComponent: () => import('./pages/intervention/intervention').then((m) => m.Intervention),
-    title: "Cartronic — L'application de dépannage et réparation automobile",
+    title: "Cartronic Intervention | Techniciens automobiles à la demande",
   },
   {
     path: 'marketplace',
     loadComponent: () => import('./pages/marketplace/marketplace').then((m) => m.Marketplace),
-    title: 'Marketplace Cartronic — Pièces, location et vente de véhicules',
+    title: 'CartroMall | Pièces et solutions de mobilité',
   },
   {
     path: 'rejoindre',
     loadComponent: () => import('./pages/join/join').then((m) => m.Join),
-    title: 'Rejoindre Cartronic — Technicien ou vendeur',
+    title: 'Rejoindre Cartronic | Techniciens et vendeurs partenaires',
   },
   {
     path: 'devenir-technicien',
@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: 'devenir-vendeur',
     loadComponent: () => import('./pages/become-seller/become-seller').then((m) => m.BecomeSeller),
-    title: 'Devenir vendeur — Marketplace Cartronic',
+    title: 'Devenir vendeur | CartroMall',
   },
   {
     path: 'a-propos',
@@ -56,11 +56,11 @@ export const routes: Routes = [
   {
     path: 'mentions-legales',
     loadComponent: () => import('./pages/legal/legal').then((m) => m.Legal),
-    title: 'Mentions légales — Cartronic',
+    title: 'Mentions légales | Cartronic',
   },
   {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
-    title: 'Page introuvable — Cartronic',
+    title: 'Page introuvable | Cartronic',
   },
 ];

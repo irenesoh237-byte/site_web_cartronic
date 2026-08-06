@@ -1,7 +1,7 @@
 .hero {
   padding-block: var(--space-3xl);
-  background:
-    linear-gradient(160deg, #dbeafe 0%, #eff6ff 35%, var(--color-bg) 70%);
+  background: var(--color-primary);
+  color: #fff;
 }
 
 .hero__grid {
@@ -19,9 +19,9 @@
   padding: 0.35rem 0.9rem;
   margin-bottom: var(--space-md);
   border-radius: var(--radius-full);
-  border: 1.5px solid var(--color-primary-light);
-  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
-  color: var(--color-primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -117,7 +117,7 @@
 
 .download {
   margin-bottom: var(--space-2xl);
-  background: var(--color-primary-dark);
+  background: var(--color-primary);
 }
 
 // Section trust — fond légèrement grisé
@@ -354,4 +354,97 @@
   .hero__stats {
     gap: var(--space-sm);
   }
+}
+
+
+// Alignement fin avec la maquette cartronic-vitrine.html
+.hero h1,
+.hero .eyebrow {
+  color: #fff;
+}
+
+.hero h1 {
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.hero__lead {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+.hero__actions .btn--primary {
+  background: var(--color-surface-dark);
+  border-color: var(--color-surface-dark);
+  color: #fff;
+  box-shadow: none;
+}
+
+.hero__actions .btn--primary:hover {
+  background: var(--color-surface-dark-alt);
+}
+
+.hero__actions .btn--outline {
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.hero__actions .btn--outline:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--color-primary);
+}
+
+.hero__stat {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero__stat:not(:last-child)::after {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.section--trust {
+  background: var(--color-bg);
+}
+
+.pole-card:first-child {
+  background: var(--color-surface-dark);
+  border-color: var(--color-surface-dark);
+  color: #fff;
+}
+
+.pole-card:first-child h3,
+.pole-card:first-child .pole-card__tag,
+.pole-card:first-child .pole-card__link {
+  color: #fff;
+}
+
+.pole-card:first-child p,
+.pole-card:first-child .pole-card__features li {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pole-card:first-child .pole-card__icon {
+  background: rgba(143, 208, 255, 0.14);
+  color: var(--color-secondary-light);
+}
+
+.pole-card:first-child .pole-card__link:hover {
+  color: var(--color-secondary-light);
+}
+
+.pole-card:nth-child(2) {
+  background: var(--color-primary-tint);
+  border-color: var(--color-primary-tint);
+}
+
+.section--features {
+  background: var(--color-primary-soft);
+}
+
+.feature-card {
+  border-top: 2px solid var(--color-primary-light);
+  box-shadow: none;
 }

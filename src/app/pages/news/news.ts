@@ -66,7 +66,7 @@ export class News {
     },
     {
       date: 'Prochainement',
-      title: 'Lancement Android — Marketplace Cartronic',
+      title: 'Lancement Android | Marketplace Cartronic',
       excerpt:
         'La Marketplace Cartronic sera disponible sur Google Play Store pour les utilisateurs Android au Cameroun.',
       category: 'Produit',

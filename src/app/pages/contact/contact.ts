@@ -2,6 +2,7 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
+import { ContactMailerService } from '../../shared/services/contact-mailer.service';
 
 @Component({
   selector: 'app-contact',
@@ -29,6 +30,7 @@ export class Contact {
   protected readonly submittedEmail   = signal('');
   protected readonly submittedSubject = signal('');
   protected readonly openFaq          = signal<number | null>(null);
+  protected readonly errorMessage     = signal('');
 
   protected readonly faqs = [
     {
@@ -57,7 +59,8 @@ export class Contact {
     this.openFaq.update(current => (current === index ? null : index));
   }
 
-  private readonly fb = inject(FormBuilder);
+  private readonly fb     = inject(FormBuilder);
+  private readonly mailer = inject(ContactMailerService);
 
   protected readonly form = this.fb.nonNullable.group({
     fullName:   ['', Validators.required],
@@ -80,18 +83,36 @@ export class Contact {
     }
 
     this.loading.set(true);
+    this.errorMessage.set('');
 
-    const { email, subject } = this.form.getRawValue();
+    const raw = this.form.getRawValue();
+    const { email, subject } = raw;
 
-    // Simuler un délai réseau (remplacer par un vrai appel API)
-    setTimeout(() => {
-      console.info('Message de contact (UI only) :', this.form.getRawValue());
-      this.submittedEmail.set(email);
-      this.submittedSubject.set(subject);
-      this.loading.set(false);
-      this.submitted.set(true);
-      this.form.reset({ subject: this.subjects[0].label, phone: '+237 ' });
-    }, 1200);
+    this.mailer
+      .send(`Contact — ${subject}`, {
+        'Nom complet': raw.fullName,
+        'E-mail': raw.email,
+        'Téléphone': raw.phone,
+        'Ville': raw.city,
+        'Sujet': raw.subject,
+        'Message': raw.message,
+        'Consentement à être recontacté': raw.consent,
+      })
+      .subscribe({
+        next: () => {
+          this.submittedEmail.set(email);
+          this.submittedSubject.set(subject);
+          this.loading.set(false);
+          this.submitted.set(true);
+          this.form.reset({ subject: this.subjects[0].label, phone: '+237 ' });
+        },
+        error: () => {
+          this.loading.set(false);
+          this.errorMessage.set(
+            "L'envoi a échoué. Merci de réessayer ou de nous contacter via WhatsApp."
+          );
+        },
+      });
   }
 
   startNewMessage(): void {
