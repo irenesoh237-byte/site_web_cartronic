@@ -28,8 +28,8 @@
           <span class="contact-card__icon" aria-hidden="true"></span>
           <div class="contact-card__body">
             <p class="contact-card__label">E-mail</p>
-            <a href="mailto:contact@cartronic.cm" class="contact-card__value">
-              contact&#64;cartronic.cm
+            <a href="mailto:cartronic.cm@gmail.com" class="contact-card__value">
+              cartronic.cm@gmail.com
             </a>
           </div>
         </div>
@@ -39,14 +39,25 @@
           <span class="contact-card__icon" aria-hidden="true"></span>
           <div class="contact-card__body">
             <p class="contact-card__label">WhatsApp</p>
-            <p class="contact-card__value">+237 6XX XXX XXX</p>
+
+            <p class="contact-card__value">+237 6 90 92 09 71</p>
             <a
-              href="https://wa.me/2376XXXXXXXX"
+              href="https://wa.me/237690920971"
               target="_blank"
               rel="noopener noreferrer"
               class="contact-card__whatsapp-btn"
             >
-              Ouvrir WhatsApp
+              Ouvrir WhatsApp (Cameroun)
+            </a>
+
+            <p class="contact-card__value" style="margin-top: 0.75rem;">+33 7 84 86 24 79</p>
+            <a
+              href="https://wa.me/33784862479"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card__whatsapp-btn"
+            >
+              Ouvrir WhatsApp (France)
             </a>
           </div>
         </div>
@@ -154,15 +165,27 @@
             </div>
 
             <!-- Alternative WhatsApp -->
-            <a
-              href="https://wa.me/2376XXXXXXXX"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="success-card__whatsapp"
-            >
-              <span class="success-card__whatsapp-dot" aria-hidden="true"></span>
-              Besoin d'une réponse plus rapide ? Écrivez-nous sur WhatsApp →
-            </a>
+            <div class="success-card__whatsapp-group">
+              <p class="success-card__whatsapp-intro">Besoin d'une réponse plus rapide ?</p>
+              <a
+                href="https://wa.me/237690920971"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="success-card__whatsapp"
+              >
+                <span class="success-card__whatsapp-dot" aria-hidden="true"></span>
+                WhatsApp Cameroun (+237 6 90 92 09 71) →
+              </a>
+              <a
+                href="https://wa.me/33784862479"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="success-card__whatsapp"
+              >
+                <span class="success-card__whatsapp-dot" aria-hidden="true"></span>
+                WhatsApp France (+33 7 84 86 24 79) →
+              </a>
+            </div>
 
           </div>
         } @else {
@@ -251,6 +274,11 @@
                 <span>J'accepte d'être recontacté par l'équipe Cartronic</span>
               </label>
             </div>
+
+            <!-- Erreur d'envoi -->
+            @if (errorMessage()) {
+              <p class="field-error" role="alert">{{ errorMessage() }}</p>
+            }
 
             <!-- Bouton d'envoi -->
             <button

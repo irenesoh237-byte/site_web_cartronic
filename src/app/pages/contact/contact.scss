@@ -265,7 +265,20 @@
   width: 100%;
 }
 
-// Lien WhatsApp alternatif
+// Groupe de liens WhatsApp alternatifs
+.success-card__whatsapp-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.success-card__whatsapp-intro {
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
 .success-card__whatsapp {
   display: inline-flex;
   align-items: center;
