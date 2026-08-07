@@ -40,6 +40,27 @@
   </div>
 </section>
 
+<section class="section stat-block">
+  <div class="container stat-block__grid" appReveal="stagger">
+    <div class="stat-block__item">
+      <span class="stat-block__number" appCounter>500+</span>
+      <span class="stat-block__label">Techniciens vérifiés</span>
+    </div>
+    <div class="stat-block__item">
+      <span class="stat-block__number" appCounter>12</span>
+      <span class="stat-block__label">Villes couvertes</span>
+    </div>
+    <div class="stat-block__item">
+      <span class="stat-block__number" appCounter [duration]="1200">4.8</span>
+      <span class="stat-block__label">Satisfaction moyenne</span>
+    </div>
+    <div class="stat-block__item">
+      <span class="stat-block__number" appCounter>&lt; 30</span>
+      <span class="stat-block__label">Minutes avant intervention</span>
+    </div>
+  </div>
+</section>
+
 <section class="section section--trust">
   <div class="container">
     <div class="section-head section-head--center" appReveal>
@@ -223,6 +244,32 @@
         </p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<section class="section section--news-preview">
+  <div class="container">
+    <div class="section-head section-head--center" appReveal>
+      <span class="eyebrow">Actualités</span>
+      <h2>Ce qui se passe chez Cartronic</h2>
+    </div>
+
+    <ul class="news-preview-cards" appReveal="stagger">
+      @for (item of latestNews; track item.title) {
+        <li class="news-preview-card">
+          <div class="news-preview-card__meta">
+            <span class="news-preview-card__category">{{ item.category }}</span>
+            <span class="news-preview-card__date">{{ item.date }}</span>
+          </div>
+          <h3 class="news-preview-card__title">{{ item.title }}</h3>
+          <p class="news-preview-card__excerpt">{{ item.excerpt }}</p>
+        </li>
+      }
+    </ul>
+
+    <div class="structure__more">
+      <a routerLink="/actualites" class="btn btn--outline">Voir toutes les actualités</a>
     </div>
   </div>
 </section>
