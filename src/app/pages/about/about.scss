@@ -569,6 +569,22 @@
   }
 }
 
+// Ligne incomplète (nombre de membres non multiple de 3) : carte centrée à la même taille que les autres
+.team-grid--single {
+  display: flex;
+  justify-content: center;
+}
+
+.team-grid--single .team-card {
+  width: calc((100% - 2 * var(--space-xl)) / 3);
+}
+
+@media (max-width: 860px) {
+  .team-grid--single .team-card {
+    width: 100%;
+  }
+}
+
 // ─── Section Métriques ────────────────────────────────────────────────────────
 
 .about-metrics {
