@@ -7,7 +7,7 @@
         </svg>
         Intervention en moins de 30 min
       </div>
-      <span class="eyebrow">L'application Cartronic</span>
+      <span class="eyebrow"></span>
       <h1>Un technicien automobile, où que vous soyez</h1>
       <p class="page-hero__lead">
         Une panne qui ne prévient jamais, ou un entretien qu'on prévoit à l'avance : dans les deux
@@ -126,41 +126,47 @@
 
     <div class="grid grid--2" appReveal="stagger">
 
-      <article class="mode-card mode-card--urgent">
+      <article class="card visual-card mode-card mode-card--urgent">
+        <app-visual-card-media [visual]="urgentVisual" />
         <span class="mode-card__badge mode-card__badge--urgent">Disponible maintenant</span>
-        <div class="mode-card__icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-          </svg>
+        <div class="visual-card__body">
+          <div class="mode-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Une urgence</h3>
+          <p>Panne, crevaison, batterie à plat : vous décrivez la situation, on vous envoie quelqu'un de disponible au plus vite.</p>
+          <ul class="mode-card__features">
+            <li>Panne moteur ou problème mécanique soudain</li>
+            <li>Crevaison ou batterie à plat en déplacement</li>
+            <li>Accident ou véhicule immobilisé sur route</li>
+          </ul>
         </div>
-        <h3>Une urgence</h3>
-        <p>Panne, crevaison, batterie à plat : vous décrivez la situation, on vous envoie quelqu'un de disponible au plus vite.</p>
-        <ul class="mode-card__features">
-          <li>Panne moteur ou problème mécanique soudain</li>
-          <li>Crevaison ou batterie à plat en déplacement</li>
-          <li>Accident ou véhicule immobilisé sur route</li>
-        </ul>
       </article>
 
-      <article class="mode-card mode-card--planned">
+      <article class="card visual-card mode-card mode-card--planned">
+        <app-visual-card-media [visual]="plannedVisual" />
         <span class="mode-card__badge mode-card__badge--planned">Planifiez à l'avance</span>
-        <div class="mode-card__icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
+        <div class="visual-card__body">
+          <div class="mode-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Une intervention planifiée</h3>
+          <p>Entretien, contrôle ou réparation prévue à l'avance : vous choisissez le créneau qui vous arrange.</p>
+          <ul class="mode-card__features">
+            <li>Vidange, révision ou contrôle technique</li>
+            <li>Remplacement de pièces usées (freins, filtres…)</li>
+            <li>Diagnostic préventif avant un long trajet</li>
+          </ul>
         </div>
-        <h3>Une intervention planifiée</h3>
-        <p>Entretien, contrôle ou réparation prévue à l'avance : vous choisissez le créneau qui vous arrange.</p>
-        <ul class="mode-card__features">
-          <li>Vidange, révision ou contrôle technique</li>
-          <li>Remplacement de pièces usées (freins, filtres…)</li>
-          <li>Diagnostic préventif avant un long trajet</li>
-        </ul>
       </article>
 
     </div>

@@ -10,7 +10,7 @@
         </svg>
         Disponible au Cameroun
       </div>
-      <span class="eyebrow">Plateforme numérique automobile</span>
+      <span class="eyebrow"></span>
       <h1 lang="en">Your Vehicle,<br />Your Tech.</h1>
       <p class="hero__lead">
         Une panne, un entretien à prévoir, une pièce ou un véhicule à trouver ? On s'occupe de
@@ -119,44 +119,50 @@
 
     <div class="grid grid--2" appReveal="stagger">
 
-      <article class="card pole-card">
+      <article class="card visual-card pole-card">
+        <app-visual-card-media [visual]="cartronicVisual" />
         <span class="pole-card__badge pole-card__badge--popular">Populaire</span>
-        <span class="pole-card__icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </span>
-        <span class="pole-card__tag">Intervention &amp; dépannage</span>
-        <h3>Cartronic</h3>
-        <p>Demandez un technicien en urgence ou planifiez une intervention directement depuis l'application.</p>
-        <ul class="pole-card__features">
-          <li>Technicien disponible en urgence ou sur rendez-vous</li>
-          <li>Suivi en temps réel sur la carte</li>
-          <li>Chat et appel vocal intégrés dans l'app</li>
-        </ul>
-        <a routerLink="/intervention" class="pole-card__link">Découvrir les interventions →</a>
+        <div class="visual-card__body">
+          <span class="pole-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </span>
+          <span class="pole-card__tag">Intervention &amp; dépannage</span>
+          <h3>Cartronic</h3>
+          <p>Demandez un technicien en urgence ou planifiez une intervention directement depuis l'application.</p>
+          <ul class="pole-card__features">
+            <li>Technicien disponible en urgence ou sur rendez-vous</li>
+            <li>Suivi en temps réel sur la carte</li>
+            <li>Chat et appel vocal intégrés dans l'app</li>
+          </ul>
+          <a routerLink="/intervention" class="pole-card__link">Découvrir les interventions →</a>
+        </div>
       </article>
 
-      <article class="card pole-card">
+      <article class="card visual-card pole-card">
+        <app-visual-card-media [visual]="cartromallVisual" />
         <span class="pole-card__badge pole-card__badge--new">Nouveau</span>
-        <span class="pole-card__icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-        </span>
-        <span class="pole-card__tag">Pièces, location &amp; vente</span>
-        <h3>CartroMall</h3>
-        <p>Trouvez la pièce qu'il vous faut, louez un véhicule ou achetez tout au même endroit.</p>
-        <ul class="pole-card__features">
-          <li>Pièces détachées vérifiées par nos soins</li>
-          <li>Location de véhicules à la journée</li>
-          <li>Achat de véhicules entre particuliers</li>
-        </ul>
-        <a routerLink="/marketplace" class="pole-card__link">Découvrir Marketplace →</a>
+        <div class="visual-card__body">
+          <span class="pole-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </span>
+          <span class="pole-card__tag">Pièces, location &amp; vente</span>
+          <h3>CartroMall</h3>
+          <p>Trouvez la pièce qu'il vous faut, louez un véhicule ou achetez tout au même endroit.</p>
+          <ul class="pole-card__features">
+            <li>Pièces détachées vérifiées par nos soins</li>
+            <li>Location de véhicules à la journée</li>
+            <li>Achat de véhicules entre particuliers</li>
+          </ul>
+          <a routerLink="/marketplace" class="pole-card__link">Découvrir Marketplace →</a>
+        </div>
       </article>
 
     </div>

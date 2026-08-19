@@ -1,0 +1,21 @@
+@if (visual(); as v) {
+  @switch (v.type) {
+    @case ('illustration') {
+      <div class="visual-card__visual visual-card__visual--illustration">
+        @if (v.component === 'technician') {
+          <app-technician-scene />
+        } @else {
+          <app-marketplace-scene />
+        }
+      </div>
+    }
+    @case ('gradient') {
+      <div class="visual-card__visual" [class]="'visual-card__visual--' + v.tone"></div>
+    }
+    @case ('image') {
+      <div class="visual-card__visual">
+        <img [src]="v.src" [alt]="v.alt" loading="lazy" />
+      </div>
+    }
+  }
+}

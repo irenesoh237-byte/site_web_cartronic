@@ -404,6 +404,93 @@
   }
 }
 
+// Carte "premium" avec visuel en tête (photo, illustration SVG ou bloc
+// gradient de la palette) — voir shared/models/visual-card.ts. Utilisée avec
+// .card pour la bordure/rayon/ombre : <article class="card visual-card">.
+.visual-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.visual-card__visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.visual-card__visual--illustration {
+  background: var(--color-surface);
+}
+
+.visual-card__visual--primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.visual-card__visual--success {
+  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+}
+
+.visual-card__visual--warning {
+  background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-warning-dark) 100%);
+}
+
+.visual-card__visual--error {
+  background: linear-gradient(135deg, var(--color-error) 0%, color-mix(in srgb, var(--color-error) 70%, black) 100%);
+}
+
+// Motif de grille légère sur les visuels gradient, cohérent avec .cta-band.
+.visual-card__visual--primary,
+.visual-card__visual--success,
+.visual-card__visual--warning,
+.visual-card__visual--error {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+}
+
+.visual-card__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visual-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  flex: 1;
+}
+
+.visual-card__hook {
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+.visual-card__link {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.visual-card__link:hover {
+  color: var(--color-primary-dark);
+}
+
 // Utilitaires visuels
 .visually-hidden {
   position: absolute;

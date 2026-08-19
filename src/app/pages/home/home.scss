@@ -1,7 +1,18 @@
 .hero {
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: center;
   padding-block: var(--space-3xl);
   background: var(--color-primary);
   color: #fff;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    // Sur mobile, la hauteur généreuse cède la place à un padding raisonnable
+    // pour ne pas forcer un long scroll avant d'atteindre le reste de la page.
+    min-height: auto;
+  }
 }
 
 .hero__grid {
@@ -102,7 +113,7 @@
 // ─── Bandeau chiffres clés ──────────────────────────────────────────────────
 
 .stat-block {
-  padding-block: var(--space-xl);
+  padding-block: var(--space-2xl);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border-light);
 }
@@ -126,17 +137,19 @@
   }
 }
 
+// Traitées comme des titres, pas comme du texte secondaire.
 .stat-block__number {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 800;
+  font-size: var(--font-size-stat);
+  font-weight: 900;
+  letter-spacing: -0.03em;
   color: var(--color-primary);
   line-height: 1;
 }
 
 .stat-block__label {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--color-text-subtle);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {

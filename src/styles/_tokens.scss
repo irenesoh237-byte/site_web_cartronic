@@ -45,14 +45,29 @@
   --font-heading: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif;
 
+  // Échelle de tailles pour les titres et les chiffres clés — centralisée ici
+  // pour que toute la hiérarchie visuelle (h1/h2/h3, stats en grand format)
+  // se pilote depuis un seul endroit plutôt que par des valeurs dispersées
+  // dans chaque page.scss.
+  --font-size-h1: clamp(2.75rem, 6vw, 5.625rem);
+  --font-size-h2: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-h3: 1.65rem;
+  // Chiffres clés traités comme des titres (voir .stat-block sur l'accueil).
+  --font-size-stat: clamp(3.25rem, 6.5vw, 5.25rem);
+  --font-size-stat-sm: clamp(2.25rem, 4.5vw, 3.25rem);
+
   // Échelle d'espacement
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 5rem;
+  // 2xl/3xl pilotent le rythme entre sections (voir .section, .page-hero,
+  // .cta-band) : augmentés d'environ +35-40% pour une mise en page plus
+  // "premium" et moins dense, avec un palier plus modéré sur mobile
+  // ci-dessous pour ne pas gaspiller la hauteur visible sur petit écran.
+  --space-2xl: 5.5rem;
+  --space-3xl: 9.5rem;
 
   // Rayons
   --radius-xs: 4px;
@@ -77,4 +92,13 @@
   --icon-check-success: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2312b76a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
   --icon-check-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23f79009' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
   --icon-check-error: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23d92d20' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+// Palier mobile : le rythme "premium" plus généreux ci-dessus reste mesuré
+// sur petit écran pour ne pas gaspiller la hauteur visible.
+@media (max-width: 640px) {
+  :root {
+    --space-2xl: 3.75rem;
+    --space-3xl: 6.75rem;
+  }
 }

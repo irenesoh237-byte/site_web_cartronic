@@ -90,7 +90,7 @@
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .cat-card {
@@ -176,6 +176,13 @@
 
 .section--offers {
   background: var(--color-surface);
+}
+
+// Plus d'air entre les cartes que le gap par défaut de .grid, pour réduire
+// la densité visuelle générale de la page.
+.offers-grid,
+.guarantee-grid {
+  gap: var(--space-2xl);
 }
 
 // Carte d'offre
