@@ -2,19 +2,6 @@
   background: linear-gradient(160deg, var(--color-primary-tint) 0%, var(--color-primary-soft) 35%, var(--color-bg) 70%);
 }
 
-.campaign-back {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-text-subtle);
-  text-decoration: none;
-  margin-bottom: var(--space-md);
-
-  &:hover {
-    color: var(--color-primary);
-  }
-}
-
 .campaign-meta {
   display: flex;
   align-items: center;

@@ -38,3 +38,14 @@
 .legal-section p strong {
   color: var(--color-text-strong);
 }
+
+.legal-section ul {
+  padding-left: 1.25rem;
+  margin: 0 0 var(--space-md);
+}
+
+.legal-section li {
+  list-style: disc;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-xs);
+}

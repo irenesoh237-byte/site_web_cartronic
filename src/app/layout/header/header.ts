@@ -1,5 +1,6 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.scss',
 })
 export class Header {
+  private readonly analytics = inject(AnalyticsService);
+
   protected readonly menuOpen = signal(false);
   protected readonly scrolled = signal(false);
 
@@ -23,6 +26,7 @@ export class Header {
     { label: 'Rejoindre', path: '/rejoindre', exact: false },
     { label: 'À propos', path: '/a-propos', exact: false },
     { label: 'Actualités', path: '/actualites', exact: false },
+    { label: 'FAQ', path: '/faq', exact: false },
     { label: 'Contact', path: '/contact', exact: false },
   ];
 
@@ -32,5 +36,9 @@ export class Header {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  trackTelecharger(): void {
+    this.analytics.trackEvent('telecharger_cta_click', { location: 'header' });
   }
 }

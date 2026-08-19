@@ -1,0 +1,42 @@
+<section class="page-hero merci-hero">
+  <div class="container merci-hero__inner" appReveal>
+    <div class="merci-check" aria-hidden="true">
+      <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="merci-check__circle" cx="26" cy="26" r="24" stroke-width="2.5" />
+        <polyline
+          class="merci-check__tick"
+          points="14,27 22,35 38,18"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+
+    <span class="eyebrow">Confirmation</span>
+    <h1>{{ variant.title }}</h1>
+    <p class="page-hero__lead">{{ variant.message }}</p>
+
+    @if (variant.delay) {
+      <div class="merci-delay">{{ variant.delay }}</div>
+    }
+
+    <div class="merci-actions">
+      <a routerLink="/" class="btn btn--primary">Retour à l'accueil</a>
+      <a routerLink="/marketplace" class="btn btn--outline">Explorer CartroMall</a>
+      <a routerLink="/intervention" class="btn btn--outline">Voir Cartronic Intervention</a>
+    </div>
+
+    <div class="merci-whatsapp">
+      <p class="merci-whatsapp__intro">Besoin d'une réponse plus rapide ?</p>
+      <a
+        href="https://wa.me/237690920971"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="merci-whatsapp__link"
+      >
+        WhatsApp Cameroun (+237 6 90 92 09 71) →
+      </a>
+    </div>
+  </div>
+</section>

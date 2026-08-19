@@ -29,13 +29,23 @@
           {{ link.label }}
         </a>
       }
-      <a routerLink="/" fragment="telecharger" class="btn btn--primary site-header__cta-mobile" (click)="closeMenu()">
+      <a
+        routerLink="/"
+        fragment="telecharger"
+        class="btn btn--primary site-header__cta-mobile"
+        (click)="closeMenu(); trackTelecharger()"
+      >
         Télécharger l'app
       </a>
     </nav>
 
     <div class="site-header__actions">
-      <a routerLink="/" fragment="telecharger" class="btn btn--primary site-header__cta">
+      <a
+        routerLink="/"
+        fragment="telecharger"
+        class="btn btn--primary site-header__cta"
+        (click)="trackTelecharger()"
+      >
         Télécharger l'app
       </a>
       <button

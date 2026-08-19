@@ -32,14 +32,6 @@
       <p>On revient vers vous rapidement pour la suite.</p>
     </div>
 
-    @if (submitted()) {
-      <div class="form-status" role="status">
-        Votre candidature a bien été enregistrée, merci ! On revient vers vous rapidement.
-      </div>
-      <button type="button" class="btn btn--outline" (click)="startNewApplication()">
-        Envoyer une nouvelle candidature
-      </button>
-    } @else {
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card">
         <div class="field" [class.field--invalid]="isInvalid('fullName')">
           <label for="fullName">Nom complet *</label>
@@ -108,6 +100,5 @@
           {{ loading() ? 'Envoi en cours…' : 'Envoyer ma candidature' }}
         </button>
       </form>
-    }
   </div>
 </section>

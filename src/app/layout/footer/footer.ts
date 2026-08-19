@@ -31,7 +31,9 @@ export class Footer {
       title: 'Informations',
       links: [
         { label: 'Contact', path: '/contact' },
+        { label: 'FAQ', path: '/faq' },
         { label: 'Mentions légales', path: '/mentions-legales' },
+        { label: 'Politique de confidentialité', path: '/mentions-legales', fragment: 'confidentialite' },
       ],
     },
   ];

@@ -36,3 +36,30 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+// ─── Keyframes partagées ──────────────────────────────────────────────────────
+// Mutualisées ici (au lieu d'être redéfinies dans chaque page.scss) pour réduire
+// le poids CSS par composant : about, contact, home, intervention, join,
+// marketplace et news animent toutes un badge de hero avec la même courbe.
+
+@keyframes badge-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Flottement doux des illustrations de hero (home, intervention, marketplace).
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}

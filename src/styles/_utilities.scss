@@ -382,6 +382,28 @@
   background: var(--color-secondary);
 }
 
+// Bandeau CTA sombre à motif de grille (repris identique sur À propos,
+// Rejoindre et la section téléchargement Marketplace).
+.cta-band {
+  position: relative;
+  padding-block: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  color: var(--color-text-on-dark);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+}
+
 // Utilitaires visuels
 .visually-hidden {
   position: absolute;

@@ -42,267 +42,21 @@
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  animation: contact-badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-
-@keyframes contact-badge-pop {
-  from { opacity: 0; transform: translateY(-6px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  animation: badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .contact-hero__badge { animation: none; }
 }
 
-// ─── FAQ compacte ─────────────────────────────────────────────────────────────
+// ─── Renvoi vers la FAQ dédiée ──────────────────────────────────────────────────
 
-.contact-faq {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border-light);
-}
-
-.contact-faq__title {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  font-weight: 700;
-  color: var(--color-text-strong);
-  text-align: center;
-  margin: 0 0 var(--space-xl);
-}
-
-.contact-faq__list {
+.contact-faq-pointer {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--color-bg);
-}
-
-.contact-faq__item {
-  border-bottom: 1px solid var(--color-border-light);
-
-  &:last-child { border-bottom: none; }
-}
-
-.contact-faq__question {
-  width: 100%;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-text-strong);
-  cursor: pointer;
-  transition: background 0.15s ease;
-
-  &:hover { background: var(--color-surface); }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: -2px;
-  }
-}
-
-.contact-faq__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-border-light);
-  color: var(--color-text-subtle);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-  flex-shrink: 0;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-
-  .contact-faq__item--open & {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: #fff;
-  }
-}
-
-.contact-faq__answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-
-  p {
-    margin: 0;
-    padding: 0 var(--space-lg) var(--space-md);
-    font-size: 0.9rem;
-    color: var(--color-text-subtle);
-    line-height: 1.7;
-  }
-
-  .contact-faq__item--open & {
-    max-height: 200px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-faq__answer { transition: none; }
-}
-
-// ─── État de succès ───────────────────────────────────────────────────────────
-
-.success-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-lg);
-  padding: var(--space-2xl) var(--space-xl);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-xl);
-  animation: success-fade-in 0.4s ease both;
-}
-
-@keyframes success-fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-// Cercle + checkmark SVG animés
-.success-check {
-  width: 72px;
-  height: 72px;
-  flex-shrink: 0;
-}
-
-.success-check__circle {
-  stroke: var(--color-primary);
-  fill: color-mix(in srgb, var(--color-primary) 8%, transparent);
-  stroke-dasharray: 157;
-  stroke-dashoffset: 157;
-  animation: draw-circle 0.5s ease forwards;
-}
-
-.success-check__tick {
-  stroke: var(--color-primary);
-  fill: none;
-  stroke-dasharray: 36;
-  stroke-dashoffset: 36;
-  animation: draw-tick 0.35s ease 0.45s forwards;
-}
-
-@keyframes draw-circle {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes draw-tick {
-  to { stroke-dashoffset: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .success-check__circle,
-  .success-check__tick { animation: none; stroke-dashoffset: 0; }
-  .success-card { animation: none; }
-}
-
-.success-card__title {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  font-weight: 700;
-  color: var(--color-text-strong);
-  margin: 0;
-}
-
-.success-card__subtitle {
-  font-size: 0.9375rem;
-  color: var(--color-text-subtle);
-  margin: 0;
-  line-height: 1.6;
-}
-
-.success-card__email {
-  color: var(--color-primary);
-  font-weight: 700;
-  word-break: break-all;
-}
-
-// Récapitulatif du sujet
-.success-card__recap {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: var(--space-md) var(--space-lg);
-  background: var(--color-primary-soft);
-  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  border-radius: var(--radius-lg);
-  width: 100%;
-}
-
-.success-card__recap-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text-subtle);
-}
-
-.success-card__recap-value {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-primary-dark);
-}
-
-// Boutons d'action
-.success-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-sm);
-  width: 100%;
-}
-
-// Groupe de liens WhatsApp alternatifs
-.success-card__whatsapp-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.success-card__whatsapp-intro {
-  font-size: 0.875rem;
-  color: var(--color-text-subtle);
-  margin: 0;
-}
-
-.success-card__whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-success-dark);
-  text-decoration: none;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-full);
-  background: var(--color-success-soft);
-  border: 1px solid var(--color-success-light);
-  transition: background 0.18s ease;
-
-  &:hover { background: var(--color-success-light); }
-}
-
-.success-card__whatsapp-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-success);
-  flex-shrink: 0;
 }
 
 // ─── Layout deux colonnes ─────────────────────────────────────────────────────
@@ -409,6 +163,30 @@
   &:hover {
     background: var(--color-success-light);
     border-color: var(--color-success-light);
+  }
+}
+
+// Lien "Itinéraire" dans la carte Adresse — mêmes proportions que le bouton
+// WhatsApp ci-dessus, mais ton primaire (pas de sémantique WhatsApp ici).
+.contact-card__link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary-light);
   }
 }
 
@@ -660,5 +438,36 @@
       color: var(--color-border);
       font-weight: 400;
     }
+  }
+}
+
+// ─── Carte ────────────────────────────────────────────────────────────────────
+
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.contact-map__title {
+  margin: 0;
+}
+
+.contact-map__frame {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
   }
 }

@@ -32,15 +32,6 @@
       <p>On étudie votre demande et on valide votre compte vendeur avant sa mise en ligne.</p>
     </div>
 
-    @if (submitted()) {
-      <div class="form-status" role="status">
-        Votre demande a bien été transmise, merci ! On revient vers vous dès que votre compte
-        vendeur est validé.
-      </div>
-      <button type="button" class="btn btn--outline" (click)="startNewApplication()">
-        Envoyer une nouvelle demande
-      </button>
-    } @else {
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card">
         <div class="field" [class.field--invalid]="isInvalid('businessName')">
           <label for="businessName">Nom ou raison sociale *</label>
@@ -104,6 +95,5 @@
           {{ loading() ? 'Envoi en cours…' : 'Envoyer ma demande' }}
         </button>
       </form>
-    }
   </div>
 </section>

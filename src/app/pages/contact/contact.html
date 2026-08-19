@@ -68,6 +68,15 @@
           <div class="contact-card__body">
             <p class="contact-card__label">Adresse</p>
             <p class="contact-card__value">Yaoundé, Cameroun</p>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Yaound%C3%A9%2C%20Cameroun"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card__link-btn"
+              (click)="trackItineraire()"
+            >
+              Itinéraire →
+            </a>
           </div>
         </div>
 
@@ -86,7 +95,7 @@
           <p class="contact-socials__label">Suivez-nous</p>
           <div class="contact-socials__links">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/19HAP7J25A/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
               class="contact-social-btn"
@@ -98,21 +107,19 @@
               </svg>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.tiktok.com/@cartronic_system"
               target="_blank"
               rel="noopener noreferrer"
               class="contact-social-btn"
-              aria-label="Instagram Cartronic"
+              aria-label="TikTok Cartronic"
             >
-              <!-- Instagram -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              <!-- TikTok -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/>
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/cartronic-sarl/"
               target="_blank"
               rel="noopener noreferrer"
               class="contact-social-btn"
@@ -131,64 +138,6 @@
 
       <!-- ── Colonne droite : formulaire ── -->
       <div class="contact-form-col">
-        @if (submitted()) {
-          <div class="success-card" role="status" aria-live="polite">
-
-            <!-- Checkmark animé -->
-            <div class="success-check" aria-hidden="true">
-              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle class="success-check__circle" cx="26" cy="26" r="24" stroke-width="2.5"/>
-                <polyline class="success-check__tick" points="14,27 22,35 38,18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-
-            <h2 class="success-card__title">Message envoyé avec succès&nbsp;! </h2>
-            <p class="success-card__subtitle">
-              Nous vous répondrons sous 24h à
-              <strong class="success-card__email">{{ submittedEmail() }}</strong>
-            </p>
-
-            <!-- Récapitulatif du sujet -->
-            <div class="success-card__recap">
-              <span class="success-card__recap-label">Sujet de votre demande</span>
-              <span class="success-card__recap-value">{{ submittedSubject() }}</span>
-            </div>
-
-            <!-- Actions -->
-            <div class="success-card__actions">
-              <button type="button" class="btn btn--primary" (click)="startNewMessage()">
-                 Envoyer un autre message
-              </button>
-              <a routerLink="/" class="btn btn--outline">
-                ← Retour à l'accueil
-              </a>
-            </div>
-
-            <!-- Alternative WhatsApp -->
-            <div class="success-card__whatsapp-group">
-              <p class="success-card__whatsapp-intro">Besoin d'une réponse plus rapide ?</p>
-              <a
-                href="https://wa.me/237690920971"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="success-card__whatsapp"
-              >
-                <span class="success-card__whatsapp-dot" aria-hidden="true"></span>
-                WhatsApp Cameroun (+237 6 90 92 09 71) →
-              </a>
-              <a
-                href="https://wa.me/33784862479"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="success-card__whatsapp"
-              >
-                <span class="success-card__whatsapp-dot" aria-hidden="true"></span>
-                WhatsApp France (+33 7 84 86 24 79) →
-              </a>
-            </div>
-
-          </div>
-        } @else {
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card">
 
             <!-- Nom + E-mail : 2 colonnes sur desktop -->
@@ -296,47 +245,44 @@
             </button>
 
           </form>
-        }
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- FAQ compacte -->
-<section class="section contact-faq" appReveal>
-  <div class="container container--narrow">
-    <h2 class="contact-faq__title">Questions fréquentes</h2>
+<!-- Carte -->
+<section class="section">
+  <div class="container">
+    <div class="contact-map" appReveal>
+      <h2 class="contact-map__title">Nous trouver</h2>
+      <div class="contact-map__frame">
+        <iframe
+          src="https://www.google.com/maps?q=Yaound%C3%A9%2C+Cameroun&output=embed"
+          title="Localisation de Cartronic à Yaoundé, Cameroun"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=Yaound%C3%A9%2C%20Cameroun"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--outline"
+        (click)="trackItineraire()"
+      >
+        Itinéraire →
+      </a>
+    </div>
+  </div>
+</section>
 
-    <dl class="contact-faq__list">
-      @for (faq of faqs; track faq.q; let i = $index) {
-        <div
-          class="contact-faq__item"
-          [class.contact-faq__item--open]="openFaq() === i"
-        >
-          <dt>
-            <button
-              type="button"
-              class="contact-faq__question"
-              [attr.aria-expanded]="openFaq() === i"
-              [attr.aria-controls]="'faq-answer-' + i"
-              (click)="toggleFaq(i)"
-            >
-              <span>{{ faq.q }}</span>
-              <span class="contact-faq__icon" aria-hidden="true">
-                {{ openFaq() === i ? '−' : '+' }}
-              </span>
-            </button>
-          </dt>
-          <dd
-            class="contact-faq__answer"
-            [id]="'faq-answer-' + i"
-            [attr.aria-hidden]="openFaq() !== i"
-          >
-            <p>{{ faq.a }}</p>
-          </dd>
-        </div>
-      }
-    </dl>
+<!-- Renvoi vers la FAQ dédiée -->
+<section class="section section--alt">
+  <div class="container container--narrow contact-faq-pointer" appReveal>
+    <h2>Une question ?</h2>
+    <p>Retrouvez les réponses aux questions les plus fréquentes sur Cartronic et CartroMall dans notre FAQ.</p>
+    <a routerLink="/faq" class="btn btn--outline">Voir la FAQ →</a>
   </div>
 </section>

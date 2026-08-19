@@ -6,17 +6,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-sm);
   width: 56px;
   height: 56px;
   border-radius: 50%;
   background: #25d366;
   color: #fff;
   box-shadow: var(--shadow-md);
+  text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   svg {
     width: 28px;
     height: 28px;
+    flex-shrink: 0;
   }
 
   &:hover {
@@ -30,8 +33,45 @@
   }
 }
 
+// Libellé masqué sur desktop : le rond compact suffit, le survol suggère
+// déjà "cliquer pour agir" sur un écran large.
+.whatsapp-fab__label {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .whatsapp-fab {
     transition: none;
+  }
+}
+
+// Mobile : aucune autre CTA n'est visible en scrollant (le CTA du header est
+// caché dans le menu burger) — on transforme le rond flottant en barre
+// sticky pleine largeur, avec libellé, pour un CTA d'action clair et lisible.
+@media (max-width: 640px) {
+  .whatsapp-fab {
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: var(--space-md);
+    width: auto;
+    height: auto;
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-full);
+    justify-content: center;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .whatsapp-fab__label {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .whatsapp-fab svg {
+    width: 22px;
+    height: 22px;
   }
 }

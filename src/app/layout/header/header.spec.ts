@@ -41,9 +41,9 @@ describe('Header', () => {
     expect(toggle).toBeTruthy();
   });
 
-  it(`affiche ${7} liens de navigation`, () => {
+  it(`affiche ${8} liens de navigation`, () => {
     const links = fixture.nativeElement.querySelectorAll('.site-header__nav a:not(.btn)');
-    expect(links.length).toBe(7);
+    expect(links.length).toBe(8);
   });
 
   // ---------------------------------------------------------------------------

@@ -6,10 +6,14 @@
 
 .not-found__inner {
   text-align: center;
-  max-width: 480px;
+  max-width: 560px;
   margin-inline: auto;
 }
 
-.not-found__inner .btn {
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
   margin-top: var(--space-md);
 }

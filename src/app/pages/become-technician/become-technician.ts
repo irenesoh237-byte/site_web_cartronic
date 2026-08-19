@@ -1,6 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactMailerService } from '../../shared/services/contact-mailer.service';
+import { AnalyticsService } from '../../shared/services/analytics.service';
 
 @Component({
   selector: 'app-become-technician',
@@ -24,12 +26,13 @@ export class BecomeTechnician {
     'Pneumatiques',
   ];
 
-  protected readonly submitted    = signal(false);
   protected readonly loading      = signal(false);
   protected readonly errorMessage = signal('');
 
-  private readonly fb     = inject(FormBuilder);
-  private readonly mailer = inject(ContactMailerService);
+  private readonly fb        = inject(FormBuilder);
+  private readonly mailer    = inject(ContactMailerService);
+  private readonly router    = inject(Router);
+  private readonly analytics = inject(AnalyticsService);
 
   protected readonly form = this.fb.nonNullable.group({
     fullName: ['', Validators.required],
@@ -65,8 +68,8 @@ export class BecomeTechnician {
       .subscribe({
         next: () => {
           this.loading.set(false);
-          this.submitted.set(true);
-          this.form.reset();
+          this.analytics.trackEvent('generate_lead', { form_name: 'technicien' });
+          void this.router.navigate(['/merci'], { queryParams: { type: 'technicien' } });
         },
         error: () => {
           this.loading.set(false);
@@ -75,10 +78,6 @@ export class BecomeTechnician {
           );
         },
       });
-  }
-
-  startNewApplication(): void {
-    this.submitted.set(false);
   }
 
   isInvalid(controlName: string): boolean {

@@ -1,0 +1,54 @@
+<section class="page-hero faq-hero">
+  <div class="container page-hero__inner" appReveal>
+    <span class="eyebrow">FAQ</span>
+    <h1>Questions fréquentes</h1>
+    <p class="page-hero__lead">
+      Retrouvez les réponses aux questions les plus posées sur Cartronic et CartroMall. Vous ne
+      trouvez pas la vôtre ? <a routerLink="/contact">Contactez-nous</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <dl class="faq-list" appReveal="stagger">
+      @for (item of items; track item.q; let i = $index) {
+        <div class="faq-item" [class.faq-item--open]="openIndex() === i">
+          <dt>
+            <button
+              type="button"
+              class="faq-question"
+              [attr.aria-expanded]="openIndex() === i"
+              [attr.aria-controls]="'faq-answer-' + i"
+              (click)="toggle(i)"
+            >
+              <span>{{ item.q }}</span>
+              <span class="faq-icon" aria-hidden="true">{{ openIndex() === i ? '−' : '+' }}</span>
+            </button>
+          </dt>
+          <dd class="faq-answer" [id]="'faq-answer-' + i" [attr.aria-hidden]="openIndex() !== i">
+            <p>{{ item.a }}</p>
+          </dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--narrow faq-cta" appReveal>
+    <h2>Vous n'avez pas trouvé votre réponse ?</h2>
+    <p>Notre équipe est disponible pour répondre à toutes vos questions.</p>
+    <div class="faq-cta__actions">
+      <a routerLink="/contact" class="btn btn--primary">Nous contacter</a>
+      <a
+        href="https://wa.me/237690920971"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--outline"
+      >
+        WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>

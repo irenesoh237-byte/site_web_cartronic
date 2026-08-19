@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-whatsapp-button',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './whatsapp-button.html',
   styleUrl: './whatsapp-button.scss',
 })
-export class WhatsappButton {}
+export class WhatsappButton {
+  private readonly analytics = inject(AnalyticsService);
+
+  onClick(): void {
+    this.analytics.trackEvent('whatsapp_click', { location: 'fab' });
+  }
+}
